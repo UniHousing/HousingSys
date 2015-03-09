@@ -6,12 +6,13 @@ import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.webapp.dao.UserDao;
 import com.webapp.daoimpl.mdb.Parameter;
 import com.webapp.model.User;
 
-@Component
+@Service
 public class UserService {
 	@Resource(name = "userMDBImpl")
 	@Autowired

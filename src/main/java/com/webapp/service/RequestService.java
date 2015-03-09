@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.webapp.dao.HouseDao;
 import com.webapp.dao.RequestDao;
@@ -13,13 +14,13 @@ import com.webapp.dao.UserDao;
 import com.webapp.model.House;
 import com.webapp.model.Request;
 import com.webapp.model.User;
-@Component
+@Service
 public class RequestService {
 	@Resource(name = "requestMDBImpl")
 	private RequestDao requestDao;
 	@Resource(name="userMDBImpl")
 	private UserDao userDao;
-	@Autowired
+	@Resource(name="houseMDBImpl")
 	private HouseDao houseDao;
 	public RequestService() {
 		// TODO Auto-generated constructor stub

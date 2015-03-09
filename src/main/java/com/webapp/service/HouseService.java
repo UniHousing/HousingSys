@@ -5,11 +5,12 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.webapp.dao.HouseDao;
 import com.webapp.daoimpl.mdb.Parameter;
 import com.webapp.model.House;
-@Component
+@Service
 public class HouseService {
 	@Resource(name = "houseMDBImpl")
 	private HouseDao houseDao;
