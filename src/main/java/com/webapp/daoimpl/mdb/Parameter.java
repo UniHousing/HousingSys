@@ -2,8 +2,8 @@ package com.webapp.daoimpl.mdb;
 
 import java.util.HashMap;
 
-public class Parameter extends HashMap<String,Object> {
-	
+public class Parameter extends HashMap<String, Object> {
+
 	/**
 	 * 
 	 */
@@ -11,25 +11,28 @@ public class Parameter extends HashMap<String,Object> {
 
 	/**
 	 * constructor，eg.: new Parameter(id, parentIds)
-	 * @param values 
+	 * 
+	 * @param values
 	 */
 	public Parameter(Object... values) {
-		if (values != null){
-			for (int i=0; i<values.length; i++){
-				put("p"+(i+1), values[i]);
+		if (values != null) {
+			for (int i = 0; i < values.length; i++) {
+				put("p" + (i + 1), values[i]);
 			}
 		}
 	}
-	
+
 	/**
-	 * constructor , eg.: new Parameter(new Object[][]{{"id", id}, {"parentIds", parentIds}})
-	 * @param parameters 
+	 * constructor , eg.: new Parameter(new Object[][]{{"id", id}, {"parentIds",
+	 * parentIds}})
+	 * 
+	 * @param parameters
 	 */
 	public Parameter(Object[][] parameters) {
-		if (parameters != null){
-			for (Object[] os : parameters){
-				if (os.length == 2){
-					put((String)os[0], os[1]);
+		if (parameters != null) {
+			for (Object[] os : parameters) {
+				if (os.length == 2) {
+					put((String) os[0], os[1]);
 				}
 			}
 		}

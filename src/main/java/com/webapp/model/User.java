@@ -1,25 +1,23 @@
 package com.webapp.model;
 
-
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-
 @Document
 public class User extends IdEntity<User> {
-	
+
 	private String name;
-    
+
 	@Indexed(unique = true)
 	private int studentId;
-	
-	public User(){
-		
+
+	public User() {
+
 	}
-	
-	public User(String name,int sid){
-		this.name = name ;
-		this.studentId=sid;
+
+	public User(String name, int sid) {
+		this.name = name;
+		this.studentId = sid;
 	}
 
 	public int getStudentId() {
@@ -33,12 +31,13 @@ public class User extends IdEntity<User> {
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	@Override
-	public String toString(){
+	public String toString() {
 		return name;
 	}
 }

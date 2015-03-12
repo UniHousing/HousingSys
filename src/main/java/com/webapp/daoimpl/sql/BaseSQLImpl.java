@@ -13,19 +13,17 @@ import com.webapp.model.House;
 
 @Component
 public class BaseSQLImpl<T> implements BaseDao<T> {
-	
-   
+
 	@Autowired
 	protected JdbcTemplate jdbcTemplate;
-	
-	
+
 	private Class<?> entityClass;
-	
-	public BaseSQLImpl(){
-		this.entityClass =  Reflections.getClassGenricType(getClass());
+
+	public BaseSQLImpl() {
+		this.entityClass = Reflections.getClassGenricType(getClass());
 	}
-	
-	public Class<?> getEntityClass(){
+
+	public Class<?> getEntityClass() {
 		return this.entityClass;
 	}
 
@@ -44,31 +42,32 @@ public class BaseSQLImpl<T> implements BaseDao<T> {
 	@Override
 	public void deleteById(Serializable id) {
 		// TODO Auto-generated method stub
-		jdbcTemplate.update("delete from " + entityClass.getSimpleName()+" where id=?",id);
+		jdbcTemplate.update("delete from " + entityClass.getSimpleName()
+				+ " where id=?", id);
 	}
 
 	@Override
 	public void delete(T entity) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void save(T entity) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void save(List<T> entities) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void update(String qlstr) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -80,6 +79,6 @@ public class BaseSQLImpl<T> implements BaseDao<T> {
 	@Override
 	public void deleteAll() {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

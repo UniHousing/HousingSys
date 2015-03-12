@@ -13,18 +13,18 @@ import com.webapp.service.HouseService;
 public class HouseAction {
 	@Resource
 	private HouseService houseService;
-	
+
 	public void addHouse(House house) {
 		houseService.addHouse(house);
 	}
-	
+
 	public List<House> findHouseByName(String name) {
 		List<House> houses = houseService.findHouseByName(name);
 		return houses;
 	}
-	
+
 	public void deleteHouseByName(String name) {
 		houseService.deleteHouseByName(name);
 	}
-	
+
 }

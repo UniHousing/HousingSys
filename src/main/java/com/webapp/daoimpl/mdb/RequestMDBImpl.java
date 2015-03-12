@@ -6,8 +6,8 @@ import com.webapp.dao.RequestDao;
 import com.webapp.model.House;
 import com.webapp.model.Request;
 import com.webapp.model.User;
-@Component
-public class RequestMDBImpl extends BaseMDBImpl<Request>  implements RequestDao{
 
+@Component
+public class RequestMDBImpl extends BaseMDBImpl<Request> implements RequestDao {
 
 }

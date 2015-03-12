@@ -15,45 +15,47 @@ import com.webapp.dao.UserDao;
 import com.webapp.model.User;
 
 public class UserSQLImpTest extends SpringTransactionContextTest {
-	
-	@Resource(name="userSQLImpl")
+
+	@Resource(name = "userSQLImpl")
 	private UserDao userDao;
-	
+
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-	
+
 	@Test
-	public void save(){
+	public void save() {
 		User user = new User();
 		user.setName("jaing");
 		user.setId("235342");
 		userDao.save(user);
 		userDao.delete(user);
-//		userDao.deleteById(user.getId());
+		// userDao.deleteById(user.getId());
 	}
-	
+
 	@Test
-	public void update(){
-		User user=new User();
+	public void update() {
+		User user = new User();
 		user.setName("jesse");
 		user.setId("210001");
 		userDao.save(user);
-		userDao.updateName(user,"tom");
+		userDao.updateName(user, "tom");
 		userDao.delete(user);
-		
+
 	}
-//	@Test 
-	public void find(){
-		User user=new User();
+
+	// @Test
+	public void find() {
+		User user = new User();
 		user.setName("jess");
 		user.setId("210002");
 		userDao.save(user);
-		User newUser=userDao.findById("210002");
-		if (user!=null) {
+		User newUser = userDao.findById("210002");
+		if (user != null) {
 			System.out.println(user.getName());
 		}
 		userDao.delete(user);
 	}
+
 	@Test
 	public void findByName() {
 		User user1 = new User();
@@ -64,12 +66,13 @@ public class UserSQLImpTest extends SpringTransactionContextTest {
 		user2.setId("1001");
 		userDao.save(user1);
 		userDao.save(user2);
-		
+
 		List<User> users = userDao.findByName("fred");
 		assertEquals(users.size(), 2);
 		userDao.delete(user1);
 		userDao.delete(user2);
 	}
+
 	@Test
 	public void findAll() {
 		User user1 = new User();
@@ -80,7 +83,7 @@ public class UserSQLImpTest extends SpringTransactionContextTest {
 		user2.setId("1001");
 		userDao.save(user1);
 		userDao.save(user2);
-		
+
 		List<User> users = userDao.findAll();
 		assertEquals(users.size(), 2);
 		userDao.delete(user1);

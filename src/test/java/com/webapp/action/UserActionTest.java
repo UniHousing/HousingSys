@@ -12,7 +12,7 @@ import com.webapp.model.User;
 public class UserActionTest extends SpringTransactionContextTest {
 	@Resource
 	private UserAction userAction;
-	
+
 	@Test
 	public void addUser() {
 		User u = new User("fred", 88);

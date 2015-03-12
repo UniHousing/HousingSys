@@ -17,40 +17,40 @@ public class UserService {
 	@Resource(name = "userMDBImpl")
 	@Autowired
 	private UserDao userDao;
-	
-	public UserService(){
-		
+
+	public UserService() {
+
 	}
-	
-	public void saveUser(User u){
+
+	public void saveUser(User u) {
 		userDao.save(u);
 	}
-	
-	public User findUserByStudentId(int studentId){
+
+	public User findUserByStudentId(int studentId) {
 		Parameter parameter = new Parameter();
 		parameter.put("studentId", studentId);
 		User user = userDao.findOne(parameter);
 		return user;
 	}
-	
-	public List<User> findUserByName(String name){
+
+	public List<User> findUserByName(String name) {
 		return userDao.findByName(name);
 	}
-	
+
 	public void deleteUserByName(String name) {
 		List<User> users = userDao.findByName(name);
-		for(User user: users) {
+		for (User user : users) {
 			userDao.delete(user);
 		}
 	}
-	
+
 	public void deleteByStudentId(int studentId) {
 		Parameter parameter = new Parameter();
 		parameter.put("studentId", studentId);
 		User u = userDao.findOne(parameter);
 		userDao.delete(u);
 	}
-	
+
 	public void deleteUser(User u) {
 		userDao.delete(u);
 	}

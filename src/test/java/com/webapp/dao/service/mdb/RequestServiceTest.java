@@ -12,19 +12,20 @@ import com.webapp.model.User;
 import com.webapp.service.HouseService;
 import com.webapp.service.RequestService;
 import com.webapp.service.UserService;
+
 @Component
 public class RequestServiceTest extends SpringTransactionContextTest {
-	
+
 	@Resource
 	private RequestService requestService;
-	
+
 	@Test
-	public void saveRequest(){
-		House house = new House("University Oaks",01,"hall");
-		User user= new User("Hongyi",3);
+	public void saveRequest() {
+		House house = new House("University Oaks", 01, "hall");
+		User user = new User("Hongyi", 3);
 		requestService.saveUser(user);
 		requestService.saveHouse(house);
-		Request request =new Request();
+		Request request = new Request();
 		request.setHouse(house);
 		request.setUser(user);
 		this.requestService.saveRequest(request);

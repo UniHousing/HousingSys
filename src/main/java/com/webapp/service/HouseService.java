@@ -10,31 +10,36 @@ import org.springframework.stereotype.Service;
 import com.webapp.dao.HouseDao;
 import com.webapp.daoimpl.mdb.Parameter;
 import com.webapp.model.House;
+
 @Service
 public class HouseService {
 	@Resource(name = "houseMDBImpl")
 	private HouseDao houseDao;
-	
+
 	public HouseService() {
-		
+
 	}
-	public void addHouse(House house){
+
+	public void addHouse(House house) {
 		houseDao.save(house);
 	}
-	public List<House> findHousesByType(String type){
+
+	public List<House> findHousesByType(String type) {
 		return houseDao.findByType(type);
 	}
+
 	public List<House> findHouseByName(String name) {
 		Parameter parameter = new Parameter();
 		parameter.put("name", name);
 		return houseDao.findAll(parameter);
 	}
+
 	public void deleteHouseByName(String name) {
 		Parameter parameter = new Parameter();
 		parameter.put("name", name);
 		List<House> houses = houseDao.findAll(parameter);
-		
-		for(House house: houses) {
+
+		for (House house : houses) {
 			houseDao.delete(house);
 		}
 	}

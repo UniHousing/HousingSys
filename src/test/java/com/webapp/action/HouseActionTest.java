@@ -16,14 +16,13 @@ import com.webapp.model.House;
 public class HouseActionTest extends SpringTransactionContextTest {
 	@Resource
 	private HouseAction houseAction;
-	
+
 	@Test
 	public void addHouse() {
-		House house = new House("Nelson Hall",12,"hall");
+		House house = new House("Nelson Hall", 12, "hall");
 		houseAction.addHouse(house);
 		List<House> houses1 = houseAction.findHouseByName("Nelson Hall");
 		assertEquals(houses1.size(), 1);
 		houseAction.deleteHouseByName("Nelson Hall");
 	}
 }
-

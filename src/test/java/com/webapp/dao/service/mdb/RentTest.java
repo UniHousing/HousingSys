@@ -1,6 +1,5 @@
 package com.webapp.dao.service.mdb;
 
-
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -17,17 +16,18 @@ import com.webapp.service.UserService;
 import com.webapp.action.RentAction;
 
 public class RentTest extends SpringTransactionContextTest {
-	
+
 	@Resource
 	private RentAction rentAction;
+
 	@Test
-	public void test(){
-		User user=new User("Hongyi",001);
-		House house= new House("University Oaks", 0221, "hall");
-//		rentAction.setHouseType(house.getType());
-//		rentAction.setStudentId(user.getStudentId());
-//		rentAction.setUserName(user.getName());
-//		rentAction.execute();
+	public void test() {
+		User user = new User("Hongyi", 001);
+		House house = new House("University Oaks", 0221, "hall");
+		// rentAction.setHouseType(house.getType());
+		// rentAction.setStudentId(user.getStudentId());
+		// rentAction.setUserName(user.getName());
+		// rentAction.execute();
 	}
-	
+
 }

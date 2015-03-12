@@ -21,40 +21,46 @@ public class RentAction {
 	private int studentId;
 	private String userName;
 	private String houseType;
-	public String execute(){
-		User user=new User();
+
+	public String execute() {
+		User user = new User();
 		user.setName(userName);
 		user.setStudentId(studentId);
-		List<House> houses=requestService.findHouse(houseType);
-		if (houses.size()==0) {
+		List<House> houses = requestService.findHouse(houseType);
+		if (houses.size() == 0) {
 			return "fail";
-		}
-		else {
-			Request request=new Request();
+		} else {
+			Request request = new Request();
 			request.setHouse(houses.get(0));
 			request.setUser(user);
 			requestService.saveRequest(request);
 			return "success";
 		}
 	}
-	//getter and setter
+
+	// getter and setter
 	public int getStudentId() {
 		return studentId;
 	}
+
 	public void setStudentId(int studentId) {
 		this.studentId = studentId;
 	}
+
 	public String getUserName() {
 		return userName;
 	}
+
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
+
 	public String getHouseType() {
 		return houseType;
 	}
+
 	public void setHouseType(String houseType) {
 		this.houseType = houseType;
 	}
-	
+
 }
