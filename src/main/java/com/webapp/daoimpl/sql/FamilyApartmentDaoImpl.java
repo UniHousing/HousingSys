@@ -15,52 +15,52 @@ public class FamilyApartmentDaoImpl extends BaseSQLImpl<FamilyApartment> impleme
 	public List<FamilyApartment> findByName(String name) {
 		String sql = "select * from family_apartment where name = ?";
 		@SuppressWarnings({ "rawtypes", "unchecked" })
-		List<FamilyApartment> familyApartments = jdbcTemplate.query(sql, new Object[] { name },
+		List<FamilyApartment> fApts = jdbcTemplate.query(sql, new Object[] { name },
 				new BeanPropertyRowMapper(FamilyApartment.class));
-		return familyApartments;
+		return fApts;
 	}
 
 	@Override
 	public List<FamilyApartment> findAll() {
 		String sql = "select * from family_apartment";
 		@SuppressWarnings({ "rawtypes", "unchecked" })
-		List<FamilyApartment> familyApartments = jdbcTemplate.query(sql, new BeanPropertyRowMapper(
+		List<FamilyApartment> fApts = jdbcTemplate.query(sql, new BeanPropertyRowMapper(
 				FamilyApartment.class));
-		return familyApartments;
+		return fApts;
 	}
 
 
 	@Override
-	public void save(FamilyApartment familyApartment) {
+	public void save(FamilyApartment fApt) {
 		this.jdbcTemplate.update("insert into family_apartment (id, name, addr, tel, room_count, bath_count, month_rate) values(?,?,?,?,?,?,?)",
-				familyApartment.getId(),
-				familyApartment.getName(), 
-				familyApartment.getAddr(),
-				familyApartment.getTel(),
-				familyApartment.getRoomCount(),
-				familyApartment.getBathCount(),
-				familyApartment.getMonthRate());
+				fApt.getId(),
+				fApt.getName(), 
+				fApt.getAddr(),
+				fApt.getTel(),
+				fApt.getRoomCount(),
+				fApt.getBathCount(),
+				fApt.getMonthRate());
 	}
 
 	@Override
-	public void delete(FamilyApartment familyApartment) {
-		String query = "delete from family_apartment where id='" + familyApartment.getId() + "' ";
+	public void delete(FamilyApartment fApt) {
+		String query = "delete from family_apartment where id='" + fApt.getId() + "' ";
 		jdbcTemplate.update(query);
 	}
 	
 	@Override
-	public void updateName(FamilyApartment familyApartment, String str) {
+	public void updateName(FamilyApartment fApt, String str) {
 		String query = "update family_apartment set name= '" + str + "' where id='"
-				+ familyApartment.getId() + "' ";
+				+ fApt.getId() + "' ";
 		jdbcTemplate.update(query);
 	}
 
 	@Override
 	public FamilyApartment findById(Serializable id) {
 		String sql = "SELECT * FROM family_apartment WHERE id = ?";
-		FamilyApartment familyApartment = jdbcTemplate.queryForObject(sql, new Object[] { id },
+		FamilyApartment fApt = jdbcTemplate.queryForObject(sql, new Object[] { id },
 				new BeanPropertyRowMapper<FamilyApartment>(FamilyApartment.class));
-		return familyApartment;
+		return fApt;
 	}
 	
 }
