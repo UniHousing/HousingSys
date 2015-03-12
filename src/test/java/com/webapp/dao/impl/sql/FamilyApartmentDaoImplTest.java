@@ -77,4 +77,17 @@ public class FamilyApartmentDaoImplTest extends SpringTransactionContextTest {
 		assertEquals(fampt.getRoomCount(), 5);
 		familyApartmentDao.delete(fampt);
 	}
+	@Test
+	public void findAll() {
+		FamilyApartment famt1 = new FamilyApartment();
+		famt1.setId("1003");
+		familyApartmentDao.save(famt1);
+		FamilyApartment famt2 = new FamilyApartment();
+		famt2.setId("1004");
+		familyApartmentDao.save(famt2);
+		List<FamilyApartment> famts = familyApartmentDao.findAll();
+		assertEquals(famts.size(), 2);
+		familyApartmentDao.delete(famt1);
+		familyApartmentDao.delete(famt2);
+	}
 }

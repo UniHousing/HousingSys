@@ -20,20 +20,15 @@ public class FamilyApartmentDaoImpl extends BaseSQLImpl<FamilyApartment> impleme
 		return familyApartments;
 	}
 
-//	@Override
-//	public List<User> findAll() {
-//		String sql = "select * from user";
-//		@SuppressWarnings({ "rawtypes", "unchecked" })
-//		List<User> users = jdbcTemplate.query(sql, new BeanPropertyRowMapper(
-//				User.class));
-//		return users;
-//	}
-//
-//	@Override
-//	public User findOne(Parameter parameter) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
+	@Override
+	public List<FamilyApartment> findAll() {
+		String sql = "select * from family_apartment";
+		@SuppressWarnings({ "rawtypes", "unchecked" })
+		List<FamilyApartment> familyApartments = jdbcTemplate.query(sql, new BeanPropertyRowMapper(
+				FamilyApartment.class));
+		return familyApartments;
+	}
+
 
 	@Override
 	public void save(FamilyApartment familyApartment) {
