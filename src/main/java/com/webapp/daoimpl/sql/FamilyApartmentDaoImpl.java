@@ -52,14 +52,14 @@ public class FamilyApartmentDaoImpl extends BaseSQLImpl<FamilyApartment> impleme
 		String query = "delete from family_apartment where id='" + familyApartment.getId() + "' ";
 		jdbcTemplate.update(query);
 	}
-	/*
+	
 	@Override
-	public void updateName(User user, String str) {
-		String query = "update user set name= '" + str + "' where id='"
-				+ user.getId() + "' ";
+	public void updateName(FamilyApartment familyApartment, String str) {
+		String query = "update family_apartment set name= '" + str + "' where id='"
+				+ familyApartment.getId() + "' ";
 		jdbcTemplate.update(query);
 	}
-*/
+
 	@Override
 	public FamilyApartment findById(Serializable id) {
 		String sql = "SELECT * FROM family_apartment WHERE id = ?";
