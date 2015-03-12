@@ -63,4 +63,11 @@ public class StudentDaoImpl extends BaseSQLImpl<Student> implements StudentDao {
 				new BeanPropertyRowMapper<Student>(Student.class));
 		return student;
 	}
+
+
+	@Override
+	public List<Student> findAll(String qlstr) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

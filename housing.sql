@@ -153,9 +153,9 @@ DROP TABLE IF EXISTS `parking_spot`;
 CREATE TABLE `parking_spot` (
   `id` varchar(64) NOT NULL,
   `lot_id` varchar(64) NOT NULL,
-  `class` varchar(64) ,
+  `classification` varchar(64) ,
   `fee` float default NULL,
-  `availablity` varchar(64)  default NULL,
+  `availability` varchar(64)  default NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

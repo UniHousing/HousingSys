@@ -5,7 +5,7 @@ public class ParkingSpot {
 	private String lot_id;
 	private String classification;
 	private float fee;
-	private String availiablity;
+	private String availability;
 	public String getId() {
 		return id;
 	}
@@ -30,11 +30,11 @@ public class ParkingSpot {
 	public void setFee(float fee) {
 		this.fee = fee;
 	}
-	public String getAvailiablity() {
-		return availiablity;
+	public String getAvailability() {
+		return availability;
 	}
-	public void setAvailiablity(String availiablity) {
-		this.availiablity = availiablity;
+	public void setAvailability(String availability) {
+		this.availability = availability;
 	}
 	
 }

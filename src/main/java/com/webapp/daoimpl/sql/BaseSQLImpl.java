@@ -28,18 +28,6 @@ public abstract class BaseSQLImpl<T> implements BaseDao<T> {
 	}
 
 	@Override
-	public T findById(Serializable id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<T> findAll(String qlstr) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public void deleteById(Serializable id) {
 		// TODO Auto-generated method stub
 		jdbcTemplate.update("delete from " + entityClass.getSimpleName()

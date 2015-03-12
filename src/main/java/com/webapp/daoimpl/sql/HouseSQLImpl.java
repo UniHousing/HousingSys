@@ -1,5 +1,6 @@
 package com.webapp.daoimpl.sql;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
@@ -39,6 +40,18 @@ public class HouseSQLImpl extends BaseSQLImpl<House> implements HouseDao {
 	public void delete(House entity) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public House findById(Serializable id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<House> findAll(String qlstr) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
