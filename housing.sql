@@ -147,6 +147,19 @@ CREATE TABLE `parking_lot` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
+-- Table structure for parking_lot
+-- ----------------------------
+DROP TABLE IF EXISTS `parking_spot`;
+CREATE TABLE `parking_spot` (
+  `id` varchar(64) NOT NULL,
+  `lot_id` varchar(64) NOT NULL,
+  `class` varchar(64) ,
+  `fee` float default NULL,
+  `availablity` varchar(64)  default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
 -- Table structure for residence_hall
 -- ----------------------------
 DROP TABLE IF EXISTS `residence_hall`;
