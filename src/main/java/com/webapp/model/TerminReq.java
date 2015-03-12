@@ -5,7 +5,7 @@ import java.util.Date;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
-public class TerminateRequest extends IdEntity<TerminateRequest> {
+public class TerminReq extends IdEntity<TerminReq> {
 
 	private String leaseId;
 	private String reason;

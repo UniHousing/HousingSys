@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 import com.webapp.dao.HouseDao;
 import com.webapp.daoimpl.mdb.Parameter;
 import com.webapp.model.House;
-import com.webapp.model.User;
 
 @Component
 public class HouseSQLImpl extends BaseSQLImpl<House> implements HouseDao {
