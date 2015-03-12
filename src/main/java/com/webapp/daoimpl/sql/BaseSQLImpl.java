@@ -12,7 +12,7 @@ import com.webapp.dao.BaseDao;
 import com.webapp.model.House;
 
 @Component
-public class BaseSQLImpl<T> implements BaseDao<T> {
+public abstract class BaseSQLImpl<T> implements BaseDao<T> {
 
 	@Autowired
 	protected JdbcTemplate jdbcTemplate;
@@ -45,24 +45,7 @@ public class BaseSQLImpl<T> implements BaseDao<T> {
 		jdbcTemplate.update("delete from " + entityClass.getSimpleName()
 				+ " where id=?", id);
 	}
-
-	@Override
-	public void delete(T entity) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void save(T entity) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void save(List<T> entities) {
-		// TODO Auto-generated method stub
-
-	}
+	
 
 	@Override
 	public void update(String qlstr) {
@@ -70,15 +53,5 @@ public class BaseSQLImpl<T> implements BaseDao<T> {
 
 	}
 
-	@Override
-	public List<T> findAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	@Override
-	public void deleteAll() {
-		// TODO Auto-generated method stub
-
-	}
 }

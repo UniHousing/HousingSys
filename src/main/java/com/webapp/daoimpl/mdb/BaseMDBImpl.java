@@ -122,13 +122,6 @@ public class BaseMDBImpl<T> implements BaseDao<T> {
 		mongoTemplate.save(entity);
 	}
 
-	@Override
-	public void save(List<T> entities) {
-		// TODO Auto-generated method stub
-		for (T entity : entities) {
-			mongoTemplate.save(entity);
-		}
-	}
 
 	@Override
 	public void update(String qlstr) {
@@ -160,10 +153,5 @@ public class BaseMDBImpl<T> implements BaseDao<T> {
 		return query;
 	}
 
-	@Override
-	public void deleteAll() {
-		// TODO Auto-generated method stub
-		this.mongoTemplate.dropCollection(entityClass);
-	}
 
 }

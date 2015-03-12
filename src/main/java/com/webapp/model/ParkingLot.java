@@ -7,11 +7,11 @@ public class ParkingLot extends IdEntity<ParkingLot>{
 	
 	private int numParkingSpot;
 	
-	public int getNumParkingLot() {
+	public int getNumParkingSpot() {
 		return numParkingSpot;
 	}
 
-	public void setNumParkingLot(int numParkingLot) {
+	public void setNumParkingSpot(int numParkingLot) {
 		this.numParkingSpot = numParkingLot;
 	}
 }

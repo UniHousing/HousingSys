@@ -22,7 +22,7 @@ public class StudentDaoImpl extends BaseSQLImpl<Student> implements StudentDao {
 		return students;
 	}
 
-	@Override
+
 	public List<Student> findAll() {
 		String sql = "select * from student";
 		@SuppressWarnings({ "rawtypes", "unchecked" })
