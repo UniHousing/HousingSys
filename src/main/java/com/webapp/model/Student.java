@@ -2,8 +2,6 @@ package com.webapp.model;
 
 import java.util.Date;
 
-import org.springframework.stereotype.Component;
-
 public class Student extends IdEntity<Student> {
 	
 	private String fname;

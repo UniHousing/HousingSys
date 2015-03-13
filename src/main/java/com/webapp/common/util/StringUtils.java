@@ -25,7 +25,7 @@ import org.springframework.web.servlet.LocaleResolver;
 public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	
 	public static String lowerFirst(String str){
-		if(StringUtils.isBlank(str)) {
+		if(org.apache.commons.lang3.StringUtils.isBlank(str)) {
 			return "";
 		} else {
 			return str.substring(0,1).toLowerCase() + str.substring(1);
@@ -33,7 +33,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	}
 	
 	public static String upperFirst(String str){
-		if(StringUtils.isBlank(str)) {
+		if(org.apache.commons.lang3.StringUtils.isBlank(str)) {
 			return "";
 		} else {
 			return str.substring(0,1).toUpperCase() + str.substring(1);

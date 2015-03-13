@@ -1,7 +1,6 @@
 package com.webapp.daoimpl.sql;
 
 import java.io.Serializable;
-import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -17,7 +16,6 @@ import com.webapp.common.util.StringUtils;
 import com.webapp.dao.BaseDao;
 import com.webapp.dao.Page;
 import com.webapp.dao.Parameter;
-import com.webapp.model.House;
 
 @Component
 public abstract class BaseSQLImpl<T> implements BaseDao<T> {
@@ -38,6 +36,7 @@ public abstract class BaseSQLImpl<T> implements BaseDao<T> {
 		return this.entityClass;
 	}
 
+	@Override
 	@SuppressWarnings("unchecked")
 	public T get(Serializable id){
 		return (T) this.jdbcTemplate.queryForObject("select * from "+tableName+" where id=?", new Object[]{id}, 
@@ -49,6 +48,7 @@ public abstract class BaseSQLImpl<T> implements BaseDao<T> {
 		return get(id);
 	}
 
+	@Override
 	public List<T> findAll(){
 		return findAll("select * from "+ tableName);
 	}
@@ -66,6 +66,7 @@ public abstract class BaseSQLImpl<T> implements BaseDao<T> {
 				+ " where id=?", id);
 	}
 	
+	@Override
 	public void delete(T entity){
 		int id;
 		try {
@@ -94,6 +95,7 @@ public abstract class BaseSQLImpl<T> implements BaseDao<T> {
 	
 	//============SQL Query===============
 
+	@Override
 	public <E> Page<E> find(Page<E> page,String sqlstr, Parameter parameter){
 		// Get Count
 		if(!page.isDisabled()&&!page.isNotCount()){
@@ -110,7 +112,7 @@ public abstract class BaseSQLImpl<T> implements BaseDao<T> {
 		
 		// order by
     	String sql = sqlstr;
-		if (StringUtils.isNotBlank(page.getOrderBy())){
+		if (org.apache.commons.lang3.StringUtils.isNotBlank(page.getOrderBy())){
 			sql += " order by " + page.getOrderBy();
 		}
 		

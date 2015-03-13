@@ -1,8 +1,6 @@
 package com.webapp.common.config;
 
 import java.util.HashMap;
-import java.util.Properties;
-
 import com.webapp.common.util.PropertiesLoader;
 
 

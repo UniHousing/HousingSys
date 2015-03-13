@@ -10,6 +10,7 @@ import com.webapp.model.House;
 public class HouseDaoImpl extends BaseSQLImpl<House> implements HouseDao {
 
     
+	@Override
 	public void save(House house){
 		if(house.getId()==0){
 			this.jdbcTemplate.update("insert into house( type,name) values(?,?)",house.getType(), house.getName());

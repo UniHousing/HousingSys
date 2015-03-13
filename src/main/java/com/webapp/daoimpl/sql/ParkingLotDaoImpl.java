@@ -13,6 +13,7 @@ import com.webapp.model.ParkingLot;
 @Component
 public class ParkingLotDaoImpl extends BaseSQLImpl<ParkingLot> implements ParkingLotDao{
 
+	@Override
 	public ParkingLot findById(Serializable id) {
 		// TODO Auto-generated method stub
 		String sql = "SELECT * FROM parking_lot WHERE id = ?";
@@ -21,6 +22,7 @@ public class ParkingLotDaoImpl extends BaseSQLImpl<ParkingLot> implements Parkin
 		return parkingLot;
 	}
 
+	@Override
 	public List<ParkingLot> findAll() {
 		// TODO Auto-generated method stub
 		String sql = "select * from parking_lot";
@@ -36,12 +38,14 @@ public class ParkingLotDaoImpl extends BaseSQLImpl<ParkingLot> implements Parkin
 		return null;
 	}
 
+	@Override
 	public void save(ParkingLot entity) {
 		// TODO Auto-generated method stub
 		this.jdbcTemplate.update("insert into parking_lot (id,num_parking_spot) values(?,?)",
 			entity.getId(),	entity.getNumParkingSpot());
 	}
 
+	@Override
 	public void delete(ParkingLot entity) {
 		// TODO Auto-generated method stub
 		String query = "delete from parking_lot where id='" + entity.getId() + "' ";
