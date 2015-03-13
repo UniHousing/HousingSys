@@ -61,10 +61,4 @@ public class FamilyMemberDaoImpl extends BaseSQLImpl<FamilyMember> implements Fa
 		return fmembers;
 	}
 
-	@Override
-	public List<FamilyMember> findAll(String qlstr) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }
