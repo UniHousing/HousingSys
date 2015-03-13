@@ -1,6 +1,7 @@
 package com.webapp.daoimpl.sql;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import com.webapp.dao.InvoiceDao;
 import com.webapp.model.Invoice;
+import com.webapp.model.Lease;
 @Component
 public class InvoiceDaoImpl extends BaseSQLImpl<Invoice> implements InvoiceDao {
 
@@ -33,10 +35,9 @@ public class InvoiceDaoImpl extends BaseSQLImpl<Invoice> implements InvoiceDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	@Override
+	
 	public void save(Invoice entity) {
-		this.jdbcTemplate.update("insert into invoice (id,lease_id,pay_date,pay_method,status,penalty,damage_charge,late_fee,total) values (?,?,?,?,?,?,?,?,?)",
+		this.jdbcTemplate.update("insert into lease (id,lease_id,pay_date,pay_method,status,penalty,damage_charge,late_fee,total) values (?,?,?,?,?,?,?,?,?)",
 				entity.getId(),
 				entity.getLeaseId(),
 				entity.getPayDate(),
