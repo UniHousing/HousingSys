@@ -2,9 +2,8 @@ package com.webapp.model;
 
 import java.util.Date;
 
-import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.stereotype.Component;
 
-@Document
 public class Student extends IdEntity<Student> {
 	
 	private String fname;
@@ -15,11 +14,11 @@ public class Student extends IdEntity<Student> {
 	private String alterTel;
 	private String addr;
 	private String city;
-	private int postCode;
+	private String postCode;
 	private Date birthDate;
 	private String category; // First year/Graduate
 	private String nation;
-	private boolean somker;
+	private String smoker;
 	private String need; // special need
 	private String comment;
 	private String status;
@@ -75,10 +74,10 @@ public class Student extends IdEntity<Student> {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	public int getPostCode() {
+	public String getPostCode() {
 		return postCode;
 	}
-	public void setPostCode(int postCode) {
+	public void setPostCode(String postCode) {
 		this.postCode = postCode;
 	}
 	public Date getBirthDate() {
@@ -99,11 +98,12 @@ public class Student extends IdEntity<Student> {
 	public void setNation(String nation) {
 		this.nation = nation;
 	}
-	public boolean isSomker() {
-		return somker;
+
+	public String getSmoker() {
+		return smoker;
 	}
-	public void setSomker(boolean somker) {
-		this.somker = somker;
+	public void setSmoker(String smoker) {
+		this.smoker = smoker;
 	}
 	public String getNeed() {
 		return need;

@@ -1,10 +1,8 @@
 package com.webapp.model;
 
-import java.util.Date;
+import org.springframework.stereotype.Component;
 
-import org.springframework.data.mongodb.core.mapping.Document;
-
-@Document
+@Component
 public class FamilyApartment extends IdEntity<FamilyApartment> {
 	
 	private String name;
@@ -12,7 +10,7 @@ public class FamilyApartment extends IdEntity<FamilyApartment> {
 	private String tel;
 	private int roomCount;
 	private int bathCount;
-	private Date monthRate;
+	private double monthRate;
 	
 	public String getName() {
 		return name;
@@ -44,10 +42,10 @@ public class FamilyApartment extends IdEntity<FamilyApartment> {
 	public void setBathCount(int bathCount) {
 		this.bathCount = bathCount;
 	}
-	public Date getMonthRate() {
+	public double getMonthRate() {
 		return monthRate;
 	}
-	public void setMonthRate(Date monthRate) {
+	public void setMonthRate(double monthRate) {
 		this.monthRate = monthRate;
 	}
 }
