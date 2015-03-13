@@ -1,6 +1,7 @@
 package com.webapp.daoimpl.sql;
 
 import java.io.Serializable;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -26,8 +27,11 @@ public abstract class BaseSQLImpl<T> implements BaseDao<T> {
 
 	private Class<?> entityClass;
 
+	private String tableName;
+	
 	public BaseSQLImpl() {
 		this.entityClass = Reflections.getClassGenricType(getClass());
+		this.tableName = toUnderScore(entityClass.getSimpleName());
 	}
 
 	public Class<?> getEntityClass() {
@@ -36,19 +40,56 @@ public abstract class BaseSQLImpl<T> implements BaseDao<T> {
 
 	@SuppressWarnings("unchecked")
 	public T get(Serializable id){
-		return (T) this.jdbcTemplate.queryForObject("select * from "+this.entityClass.getSimpleName()+" where id=?", new Object[]{id}, 
+		return (T) this.jdbcTemplate.queryForObject("select * from "+tableName+" where id=?", new Object[]{id}, 
 	              new BeanPropertyRowMapper(this.entityClass));
 	}
 	
 	@Override
 	public T findById(Serializable id) {
-		// TODO Auto-generated method stub
-		return null;
+		return get(id);
 	}
 
+	public List<T> findAll(){
+		return findAll("select * from "+ tableName);
+	}
+	
 	@Override
 	public List<T> findAll(String qlstr) {
 		return this.jdbcTemplate.query(qlstr, new BeanPropertyRowMapper(this.entityClass));
+	}
+	
+
+	@Override
+	public void deleteById(Serializable id) {
+		// TODO Auto-generated method stub
+		jdbcTemplate.update("delete from " + tableName
+				+ " where id=?", id);
+	}
+	
+	public void delete(T entity){
+		int id;
+		try {
+			id = (Integer) entityClass.getMethod("getId").invoke( null);
+			deleteById(id);
+		} catch (Exception e){
+			e.printStackTrace();
+		}
+		
+		
+	}
+
+	@Override
+	public void save(List<T> entities) {
+		for(T entity : entities){
+			save(entity);
+		}
+
+	}
+
+	@Override
+	public void update(String qlstr) {
+		// TODO Auto-generated method stub
+
 	}
 	
 	//============SQL Query===============
@@ -106,8 +147,14 @@ public abstract class BaseSQLImpl<T> implements BaseDao<T> {
 				for(Object ob : (Object[])value){
 					query += " "+ob;
 				}
-			}else{
-				query += key+"="+parameter.get(key).toString();
+			}else {
+				query  += key+"=";
+				/*If  value is string, should be quote*/
+				if( value instanceof String){        
+					query +="'"+value+"'";
+				}else{
+					query += value;
+				}
 			}
 			query +=" and ";
 		}
@@ -140,39 +187,15 @@ public abstract class BaseSQLImpl<T> implements BaseDao<T> {
 	        m.appendTail(sb);
 	        return sb.toString();  
 	    } 
+	    
+	    private String toUnderScore(String ClassName){
+	    	return ClassName;
+	    }
 	
 
-	@Override
-	public void deleteById(Serializable id) {
-		// TODO Auto-generated method stub
-		jdbcTemplate.update("delete from " + entityClass.getSimpleName()
-				+ " where id=?", id);
-	}
 
 
 
-	
-	@Override
-	public void save(List<T> entities) {
-		// TODO Auto-generated method stub
 
-	}
 
-	@Override
-	public void update(String qlstr) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public List<T> findAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void deleteAll() {
-		// TODO Auto-generated method stub
-
-	}
 }

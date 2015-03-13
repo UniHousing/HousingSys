@@ -21,12 +21,7 @@ public interface BaseDao<T> {
 	 * @return
 	 */
 	public T get(Serializable id);
-	/**
-	 * Find All The Entity
-	 * 
-	 * @return
-	 */
-	public List<T> findAll();
+
 
 	/**
 	 * Find All the Entity Using Query
@@ -66,7 +61,8 @@ public interface BaseDao<T> {
 	 */
 
 	public void deleteById(Serializable id);
+	
+	public void delete(T entity);
 
-	public void deleteAll();
 
 }

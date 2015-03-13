@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.webapp.dao.Parameter;
 import com.webapp.dao.UserDao;
-import com.webapp.model.User;
 
 @Service
 public class UserService {
