@@ -2,10 +2,8 @@ package com.webapp.service;
 
 import java.util.List;
 
-import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.webapp.dao.HouseDao;
@@ -17,11 +15,11 @@ import com.webapp.model.User;
 
 @Service
 public class RequestService {
-	@Resource(name = "requestMDBImpl")
+	@Autowired
 	private RequestDao requestDao;
-	@Resource(name = "userMDBImpl")
+	@Autowired
 	private UserDao userDao;
-	@Resource(name = "houseMDBImpl")
+	@Autowired
 	private HouseDao houseDao;
 
 	public RequestService() {
@@ -32,9 +30,7 @@ public class RequestService {
 		requestDao.save(request);
 	}
 
-	public List<House> findHouse(String str) {
-		return houseDao.findByType(str);
-	}
+
 
 	public void saveUser(User user) {
 		userDao.save(user);
@@ -44,9 +40,5 @@ public class RequestService {
 		houseDao.save(house);
 	}
 
-	// Need to modify!!!
-	public User getUser(String nameString) {
-		return userDao.findByName(nameString).get(0);
-	}
 
 }

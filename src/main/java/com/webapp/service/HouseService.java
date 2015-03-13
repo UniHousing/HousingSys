@@ -1,46 +1,54 @@
 package com.webapp.service;
 
+import java.io.Serializable;
 import java.util.List;
 
-import javax.annotation.Resource;
 
-import org.springframework.stereotype.Component;
+
+
+
+
+import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.webapp.dao.HouseDao;
-import com.webapp.daoimpl.mdb.Parameter;
+import com.webapp.dao.Page;
+import com.webapp.dao.Parameter;
 import com.webapp.model.House;
 
 @Service
 public class HouseService {
-	@Resource(name = "houseMDBImpl")
+	@Autowired
 	private HouseDao houseDao;
 
 	public HouseService() {
 
 	}
+	
 
-	public void addHouse(House house) {
+	public House get(int id){
+		return houseDao.get(id);
+	}
+	
+	public Page<House> find(Page<House> page, House house){
+		String sqlstr = "select * from house";
+		Parameter parameter = new Parameter();
+		if(StringUtils.isNotBlank(house.getName())){
+			parameter.put("name", house.getName());
+		}
+		if(StringUtils.isNotBlank(house.getType())){
+			parameter.put("type", house.getType());
+		}
+		page = houseDao.find(page,sqlstr, parameter);
+		return page;
+	}
+
+	public void save(House house){
 		houseDao.save(house);
 	}
 
-	public List<House> findHousesByType(String type) {
-		return houseDao.findByType(type);
-	}
-
-	public List<House> findHouseByName(String name) {
-		Parameter parameter = new Parameter();
-		parameter.put("name", name);
-		return houseDao.findAll(parameter);
-	}
-
-	public void deleteHouseByName(String name) {
-		Parameter parameter = new Parameter();
-		parameter.put("name", name);
-		List<House> houses = houseDao.findAll(parameter);
-
-		for (House house : houses) {
-			houseDao.delete(house);
-		}
-	}
+	public void delete(House house){
+		houseDao.deleteById(house.getId());
+	}	
 }

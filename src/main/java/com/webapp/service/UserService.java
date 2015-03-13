@@ -2,19 +2,16 @@ package com.webapp.service;
 
 import java.util.List;
 
-import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import com.webapp.dao.Parameter;
 import com.webapp.dao.UserDao;
-import com.webapp.daoimpl.mdb.Parameter;
 import com.webapp.model.User;
 
 @Service
 public class UserService {
-	@Resource(name = "userMDBImpl")
 	@Autowired
 	private UserDao userDao;
 
@@ -22,36 +19,4 @@ public class UserService {
 
 	}
 
-	public void saveUser(User u) {
-		userDao.save(u);
-	}
-
-	public User findUserByStudentId(int studentId) {
-		Parameter parameter = new Parameter();
-		parameter.put("studentId", studentId);
-		User user = userDao.findOne(parameter);
-		return user;
-	}
-
-	public List<User> findUserByName(String name) {
-		return userDao.findByName(name);
-	}
-
-	public void deleteUserByName(String name) {
-		List<User> users = userDao.findByName(name);
-		for (User user : users) {
-			userDao.delete(user);
-		}
-	}
-
-	public void deleteByStudentId(int studentId) {
-		Parameter parameter = new Parameter();
-		parameter.put("studentId", studentId);
-		User u = userDao.findOne(parameter);
-		userDao.delete(u);
-	}
-
-	public void deleteUser(User u) {
-		userDao.delete(u);
-	}
 }
