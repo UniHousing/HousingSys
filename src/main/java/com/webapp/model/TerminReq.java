@@ -2,13 +2,12 @@ package com.webapp.model;
 
 import java.util.Date;
 
-import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
 public class TerminReq extends IdEntity<TerminReq> {
 
 	private String leaseId;
 	private String reason;
+	private Date date;
 	private String status;
 	private Date inspectionDate;
 	private float extraFee;
@@ -42,5 +41,11 @@ public class TerminReq extends IdEntity<TerminReq> {
 	}
 	public void setExtraFee(float extraFee) {
 		this.extraFee = extraFee;
+	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
 	}
 }
