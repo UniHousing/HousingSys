@@ -7,7 +7,7 @@ import com.webapp.dao.HouseDao;
 import com.webapp.model.House;
 
 @Component
-public class HouseSQLImpl extends BaseSQLImpl<House> implements HouseDao {
+public class HouseDaoImpl extends BaseSQLImpl<House> implements HouseDao {
 
     
 	public void save(House house){
