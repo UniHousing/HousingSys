@@ -1,26 +1,19 @@
 package com.webapp.model;
 
-import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.Document;
+import javax.persistence.Entity;
 
-@Document
-public class House extends IdEntity<House> {
 
+
+@Entity
+public class House extends IdEntity<House>{
+	
 	private String name;
 
-	@Indexed(unique = true)
-	private int houseId;
 	private String type;
 
+	
 	public House() {
 
-	}
-
-	public House(String name, int hid, String type) {
-
-		this.name = name;
-		this.houseId = hid;
-		this.type = type;
 	}
 
 	public String getName() {
@@ -29,14 +22,6 @@ public class House extends IdEntity<House> {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public int getHouseId() {
-		return houseId;
-	}
-
-	public void setHouseId(int houseId) {
-		this.houseId = houseId;
 	}
 
 	public String getType() {

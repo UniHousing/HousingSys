@@ -46,11 +46,5 @@ public class TerminReqDaoImpl extends BaseSQLImpl<TerminReq> implements TerminRe
 				entity.getStatus(),entity.getInspectionDate(),entity.getExtraFee());
 	}
 
-	@Override
-	public void delete(TerminReq entity) {
-		// TODO Auto-generated method stub
-		String query = "delete from terminate_request where id='" + entity.getId() + "' ";
-		jdbcTemplate.update(query);
-	}
 
 }

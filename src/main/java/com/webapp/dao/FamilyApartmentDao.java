@@ -6,8 +6,10 @@ import com.webapp.model.FamilyApartment;
 
 public interface FamilyApartmentDao extends BaseDao<FamilyApartment>  {
 
-	List<FamilyApartment> findByName(String name);
+	void updateName(FamilyApartment fApartment, String string);
 
-	void updateName(FamilyApartment familyApartment, String str);
+	List<FamilyApartment> findAll();
+
+	List<FamilyApartment> findByName(String string);
 
 }

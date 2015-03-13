@@ -3,7 +3,8 @@ package com.webapp.dao;
 import java.io.Serializable;
 import java.util.List;
 
-import com.webapp.daoimpl.mdb.Parameter;
+import com.webapp.model.House;
+
 
 public interface BaseDao<T> {
 	/**
@@ -15,11 +16,12 @@ public interface BaseDao<T> {
 	public T findById(Serializable id);
 
 	/**
-	 * Find All The Entity
 	 * 
+	 * @param id
 	 * @return
 	 */
-	public List<T> findAll();
+	public T get(Serializable id);
+
 
 	/**
 	 * Find All the Entity Using Query
@@ -28,6 +30,8 @@ public interface BaseDao<T> {
 	 */
 	public List<T> findAll(String qlstr);
 
+	
+	public <E> Page<E> find(Page<E> page, String sqlstr, Parameter parameter );
 	/**
 	 * Save Entity
 	 * 
@@ -40,7 +44,14 @@ public interface BaseDao<T> {
 	 * 
 	 * @param entities
 	 */
+	public void save(List<T> entities);
 
+	/**
+	 * Update
+	 * 
+	 * @param qlstr
+	 *            TODO
+	 */
 	public void update(String qlstr);
 
 	/**
@@ -50,12 +61,8 @@ public interface BaseDao<T> {
 	 */
 
 	public void deleteById(Serializable id);
-
-	/**
-	 * Delete Entity
-	 * 
-	 * @param entity
-	 */
+	
 	public void delete(T entity);
+
 
 }

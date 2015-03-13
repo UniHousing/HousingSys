@@ -8,8 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ActiveProfiles("test")
-@ContextConfiguration(locations = { "/META-INF/mongo-config.xml",
-		"/META-INF/sql-config.xml" })
+@ContextConfiguration(locations = {"/spring-context.xml" })
 @Transactional
 public class SpringTransactionContextTest {
 
