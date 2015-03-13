@@ -8,7 +8,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class FamilyMember extends IdEntity<FamilyMember> {
 	
 	private String studentId;
-	private Date birthDate;
+	private String name;
+	private String birthDate;
 	
 	public String getStudentId() {
 		return studentId;
@@ -16,10 +17,16 @@ public class FamilyMember extends IdEntity<FamilyMember> {
 	public void setStudentId(String studentId) {
 		this.studentId = studentId;
 	}
-	public Date getBirthDate() {
+	public String getBirthDate() {
 		return birthDate;
 	}
-	public void setBirthDate(Date birthDate) {
+	public void setBirthDate(String birthDate) {
 		this.birthDate = birthDate;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 }
