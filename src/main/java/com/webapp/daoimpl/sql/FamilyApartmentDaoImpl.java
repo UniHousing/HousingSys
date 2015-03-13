@@ -62,5 +62,11 @@ public class FamilyApartmentDaoImpl extends BaseSQLImpl<FamilyApartment> impleme
 				new BeanPropertyRowMapper<FamilyApartment>(FamilyApartment.class));
 		return fApt;
 	}
+
+	@Override
+	public List<FamilyApartment> findAll(String qlstr) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

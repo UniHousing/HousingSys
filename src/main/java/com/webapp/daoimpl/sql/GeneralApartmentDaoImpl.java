@@ -63,4 +63,10 @@ public class GeneralApartmentDaoImpl extends BaseSQLImpl<GeneralApartment> imple
 		return gApts;
 	}
 
+	@Override
+	public List<GeneralApartment> findAll(String qlstr) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
