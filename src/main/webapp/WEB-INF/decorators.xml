@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<decorators defaultdir="/WEB-INF/views">
+	
+	<!-- default decorator page, need page add <meta name="decorator" content="default"/> -->
+	<decorator name="default" page="layouts/default.jsp" />
+
+
+</decorators>

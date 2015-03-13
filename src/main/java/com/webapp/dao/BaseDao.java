@@ -23,6 +23,7 @@ public interface BaseDao<T> {
 	public T get(Serializable id);
 
 
+	public List<T> findAll();
 	/**
 	 * Find All the Entity Using Query
 	 * 

@@ -26,16 +26,25 @@ public class HouseService {
 
 	}
 	
-
 	public House get(int id){
 		return houseDao.get(id);
 	}
 	
+	/**
+	 * Using Parameter to support multiple query condition
+	 * translate parameter to sql query:
+	 *  parameter[name]={"like","'%house.name%'"} => name like '%house.name%' 
+	 *  parameter[type]=house.type => where type='house.type' 
+	 * @param page
+	 * @param house
+	 * @return
+	 */
 	public Page<House> find(Page<House> page, House house){
 		String sqlstr = "select * from house";
 		Parameter parameter = new Parameter();
+		
 		if(StringUtils.isNotBlank(house.getName())){
-			parameter.put("name", house.getName());
+			parameter.put("name", new Object[]{"like", "'%"+house.getName()+"%'"});
 		}
 		if(StringUtils.isNotBlank(house.getType())){
 			parameter.put("type", house.getType());

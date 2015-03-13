@@ -27,13 +27,6 @@ public class FamilyMemberDaoImpl extends BaseSQLImpl<FamilyMember> implements Fa
 		String query = "delete from family_member where id='" + fmember.getId() + "' ";
 		jdbcTemplate.update(query);
 	}
-	
-//	@Override
-//	public void updateName(FamilyMember fmember, String str) {
-//		String query = "update family_member set name= '" + str + "' where id='"
-//				+ fmember.getId() + "' ";
-//		jdbcTemplate.update(query);
-//	}
 
 	@Override
 	public FamilyMember findById(Serializable id) {

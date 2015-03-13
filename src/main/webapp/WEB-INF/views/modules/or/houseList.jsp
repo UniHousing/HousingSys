@@ -25,6 +25,7 @@
 		<input id="pageNo" name="pageNo" type="hidden" value="${page.pageNo}"/>
 		<input id="pageSize" name="pageSize" type="hidden" value="${page.pageSize}"/>
 		<label>name ：</label><form:input path="name" htmlEscape="false" maxlength="50" class="input-small"/>
+		<label>type ：</label><form:input path="type" htmlEscape="false" maxlength="50" class="input-small"/>
 		&nbsp;<input id="btnSubmit" class="btn btn-primary" type="submit" value="Search"/>
 	</form:form>
 	<tags:message content="${message}"/>
@@ -36,8 +37,8 @@
 				<td><a href="${ctx}/or/house/form?id=${house.id}">${house.name}</a></td>
 				<td>${house.type}</td>
 				<shiro:hasPermission name="or:house:edit"><td>
-    				<a href="${ctx}/or/house/form?id=${house.id}">修改</a>
-					<a href="${ctx}/or/house/delete?id=${house.id}" onclick="return confirmx('确认要删除该house吗？', this.href)">删除</a>
+    				<a href="${ctx}/or/house/form?id=${house.id}">edit</a>
+					<a href="${ctx}/or/house/delete?id=${house.id}" onclick="return confirmx('are you sure delete this house？', this.href)">delete</a>
 				</td></shiro:hasPermission>
 			</tr>
 		</c:forEach>
