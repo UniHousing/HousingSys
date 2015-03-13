@@ -1,5 +1,7 @@
 package com.webapp.dao;
 
-public interface TicketDao {
+import com.webapp.model.Ticket;
+
+public interface TicketDao extends BaseDao<Ticket>{
 
 }
