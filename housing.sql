@@ -37,6 +37,7 @@ DROP TABLE IF EXISTS `family_member`;
 CREATE TABLE `family_member` (
   `id` varchar(64) NOT NULL,
   `student_id` varchar(64) default NULL,
+  `name` varchar(255) default NULL,
   `birth_date` datetime default NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
