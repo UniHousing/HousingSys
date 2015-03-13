@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 import com.webapp.dao.HouseDao;
 import com.webapp.daoimpl.mdb.Parameter;
 import com.webapp.model.House;
-import com.webapp.model.User;
 
 @Component
 public class HouseSQLImpl extends BaseSQLImpl<House> implements HouseDao {
@@ -21,6 +20,36 @@ public class HouseSQLImpl extends BaseSQLImpl<House> implements HouseDao {
 
 	@Override
 	public List<House> findAll(Parameter parameter) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<House> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void save(House entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(House entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public House findById(Serializable id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<House> findAll(String qlstr) {
 		// TODO Auto-generated method stub
 		return null;
 	}

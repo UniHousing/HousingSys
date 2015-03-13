@@ -40,14 +40,7 @@ public interface BaseDao<T> {
 	 * 
 	 * @param entities
 	 */
-	public void save(List<T> entities);
 
-	/**
-	 * Update
-	 * 
-	 * @param qlstr
-	 *            TODO
-	 */
 	public void update(String qlstr);
 
 	/**
@@ -64,7 +57,5 @@ public interface BaseDao<T> {
 	 * @param entity
 	 */
 	public void delete(T entity);
-
-	public void deleteAll();
 
 }

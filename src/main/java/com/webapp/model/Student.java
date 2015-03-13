@@ -15,7 +15,7 @@ public class Student extends IdEntity<Student> {
 	private String alterTel;
 	private String addr;
 	private String city;
-	private int postCode;
+	private String postCode;
 	private Date birthDate;
 	private String category; // First year/Graduate
 	private String nation;
@@ -75,10 +75,10 @@ public class Student extends IdEntity<Student> {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	public int getPostCode() {
+	public String getPostCode() {
 		return postCode;
 	}
-	public void setPostCode(int postCode) {
+	public void setPostCode(String postCode) {
 		this.postCode = postCode;
 	}
 	public Date getBirthDate() {

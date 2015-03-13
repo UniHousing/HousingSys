@@ -2,9 +2,9 @@ package com.webapp.model;
 
 import java.util.Date;
 
-import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.stereotype.Component;
 
-@Document
+@Component
 public class Staff extends IdEntity<Staff> {
 
 	private String fname;
