@@ -7,7 +7,7 @@ public class KinInfo extends IdEntity<KinInfo> {
 	private String relationship;
 	private String addr;
 	private String city;
-	private int postCode;
+	private String postCode;
 	private String tel;
 	
 	public String getStudentId() {
@@ -40,10 +40,10 @@ public class KinInfo extends IdEntity<KinInfo> {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	public int getPostCode() {
+	public String getPostCode() {
 		return postCode;
 	}
-	public void setPostCode(int postCode) {
+	public void setPostCode(String postCode) {
 		this.postCode = postCode;
 	}
 	public String getTel() {

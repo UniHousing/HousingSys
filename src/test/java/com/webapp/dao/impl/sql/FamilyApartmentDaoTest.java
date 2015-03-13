@@ -12,7 +12,7 @@ import com.webapp.common.test.SpringTransactionContextTest;
 import com.webapp.dao.FamilyApartmentDao;
 import com.webapp.model.FamilyApartment;
 
-public class FamilyApartmentDaoImplTest extends SpringTransactionContextTest {
+public class FamilyApartmentDaoTest extends SpringTransactionContextTest {
 
 	@Resource(name = "familyApartmentDaoImpl")
 	private FamilyApartmentDao familyApartmentDao;

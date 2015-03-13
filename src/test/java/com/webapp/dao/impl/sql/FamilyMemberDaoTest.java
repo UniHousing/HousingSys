@@ -16,7 +16,7 @@ import com.webapp.common.test.SpringTransactionContextTest;
 import com.webapp.dao.FamilyMemberDao;
 import com.webapp.model.FamilyMember;
 
-public class FamilyMemberDaoImplTest extends SpringTransactionContextTest {
+public class FamilyMemberDaoTest extends SpringTransactionContextTest {
 
 	@Resource(name = "familyMemberDaoImpl")
 	private FamilyMemberDao fMemberDao;
