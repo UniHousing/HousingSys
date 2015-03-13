@@ -3,7 +3,7 @@ package com.webapp.model;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
-public class NearBy extends IdEntity<NearBy> {
+public class Nearby extends IdEntity<Nearby> {
 	
 	private String lotId;
 	private String houseId;
