@@ -77,6 +77,4 @@ public class FamilyApartmentDaoImpl extends BaseSQLImpl<FamilyApartment> impleme
 		// TODO Auto-generated method stub
 		
 	}
-
-	
 }
