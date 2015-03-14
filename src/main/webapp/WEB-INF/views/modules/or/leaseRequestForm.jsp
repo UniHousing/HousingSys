@@ -31,31 +31,31 @@
 		<div class="control-group">
 			<label class="control-label" for="name">studentId:</label>
 			<div class="controls">
-				<form:input path="fname" htmlEscape="false" maxlength="200" class="required"/>
+				<form:input path="studentId" htmlEscape="false" maxlength="200" class="required"/>
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label" for="name">preference1:</label>
 			<div class="controls">
-				<form:input path="fname" htmlEscape="false" maxlength="200" class="required"/>
+				<form:input path="preference1" htmlEscape="false" maxlength="200" class="required"/>
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label" for="name">preference2:</label>
 			<div class="controls">
-				<form:input path="fname" htmlEscape="false" maxlength="200" class="required"/>
+				<form:input path="preference2" htmlEscape="false" maxlength="200" class="required"/>
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label" for="name">preference3:</label>
 			<div class="controls">
-				<form:input path="fname" htmlEscape="false" maxlength="200" class="required"/>
+				<form:input path="preference3" htmlEscape="false" maxlength="200" class="required"/>
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label" for="name">status:</label>
 			<div class="controls">
-				<form:input path="fname" htmlEscape="false" maxlength="200" class="required"/>
+				<form:input path="status" htmlEscape="false" maxlength="200" class="required"/>
 			</div>
 		</div>
 		<div class="control-group">

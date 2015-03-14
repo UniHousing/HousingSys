@@ -18,14 +18,14 @@
 </head>
 <body>
 	<ul class="nav nav-tabs">
-		<li class="active"><a href="${ctx}/or/student/">leaseRequest list</a></li>
-		<li><a href="${ctx}/or/student/form">add leaseRequest</a></li>
+		<li class="active"><a href="${ctx}/or/leaseRequest/">leaseRequest list</a></li>
+		<li><a href="${ctx}/or/leaseRequest/form">add leaseRequest</a></li>
 	</ul>
 	<form:form id="searchForm" modelAttribute="leaseRequest" action="${ctx}/or/leaseRequest/" method="post" class="breadcrumb form-search">
 		<input id="pageNo" name="pageNo" type="hidden" value="${page.pageNo}"/>
 		<input id="pageSize" name="pageSize" type="hidden" value="${page.pageSize}"/>
-		<label>fname ：</label><form:input path="fname" htmlEscape="false" maxlength="50" class="input-small"/>
-		<label>type ：</label><form:input path="type" htmlEscape="false" maxlength="50" class="input-small"/>
+		<label>studentId ：</label><form:input path="studentId" htmlEscape="false" maxlength="50" class="input-small"/>
+		<label>preference1 ：</label><form:input path="preference1" htmlEscape="false" maxlength="50" class="input-small"/>
 		&nbsp;<input id="btnSubmit" class="btn btn-primary" type="submit" value="Search"/>
 	</form:form>
 	<tags:message content="${message}"/>
@@ -42,8 +42,8 @@
 				<td>${leaseRequest.startDate}</td>
 				<td>${leaseRequest.endDate}</td>
 				<shiro:hasPermission name="or:leaseRequest:edit"><td>
-    				<a href="${ctx}/or/student/form?id=${leaseRequest.id}">edit</a>
-					<a href="${ctx}/or/student/delete?id=${leaseRequest.id}" onclick="return confirmx('are you sure delete this leaseRequest？', this.href)">delete</a>
+    				<a href="${ctx}/or/leaseRequest/form?id=${leaseRequest.id}">edit</a>
+					<a href="${ctx}/or/leaseRequest/delete?id=${leaseRequest.id}" onclick="return confirmx('are you sure delete this leaseRequest？', this.href)">delete</a>
 				</td></shiro:hasPermission>
 			</tr>
 		</c:forEach>

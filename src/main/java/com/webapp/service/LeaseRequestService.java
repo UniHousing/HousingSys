@@ -3,6 +3,7 @@ package com.webapp.service;
 
 import java.util.List;
 
+import org.apache.cassandra.thrift.Cassandra.system_add_column_family_args;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -53,9 +54,11 @@ public class LeaseRequestService {
 	public Page<LeaseRequest> find(Page<LeaseRequest> page,
 			LeaseRequest entity) {
 		// TODO Auto-generated method stub
-		String sqlstr = "select * from student";
+		String sqlstr = "select * from lease_request";
 		Parameter parameter = new Parameter();
-		
+		if(StringUtils.isNotBlank(entity.getStudentId())){
+			parameter.put("student_id", new Object[]{"like", "'%"+entity.getStudentId()+"%'"});
+		}
 		if(StringUtils.isNotBlank(entity.getPreference1())){
 			parameter.put("preference1", new Object[]{"like", "'%"+entity.getPreference1()+"%'"});
 		}
@@ -66,8 +69,7 @@ public class LeaseRequestService {
 		if(StringUtils.isNotBlank(entity.getPreference3())){
 			parameter.put("preference3", new Object[]{"like", "'%"+entity.getPreference3()+"%'"});
 		}
-		
-		page = studentDao.find(page,sqlstr, parameter);
+		page = leaseRequestDao.find(page,sqlstr, parameter);
 		return page;
 	}
 

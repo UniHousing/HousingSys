@@ -14,14 +14,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.webapp.common.config.Global;
 import com.webapp.dao.Page;
-import com.webapp.model.House;
 import com.webapp.model.LeaseRequest;
-import com.webapp.service.HouseService;
 import com.webapp.service.LeaseRequestService;
 
 
 /**
- * houseController
+ * leaseRequestController
  * @author ThinkGem
  * @version 2015-02-19
  */
