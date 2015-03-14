@@ -12,9 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.webapp.common.test.SpringTransactionContextTest;
-import com.webapp.dao.ParkingSpotDao;
 import com.webapp.dao.TerminReqDao;
-import com.webapp.model.ParkingSpot;
 import com.webapp.model.TerminReq;
 
 public class TerminReqDaoTest extends SpringTransactionContextTest {
