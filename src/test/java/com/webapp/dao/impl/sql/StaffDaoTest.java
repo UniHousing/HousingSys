@@ -7,15 +7,12 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.apache.cassandra.cli.CliParser.newColumnFamily_return;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.webapp.common.test.SpringTransactionContextTest;
-import com.webapp.dao.ParkingSpotDao;
 import com.webapp.dao.StaffDao;
-import com.webapp.model.ParkingSpot;
 import com.webapp.model.Staff;
 
 public class StaffDaoTest extends SpringTransactionContextTest {

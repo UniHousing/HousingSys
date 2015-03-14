@@ -1,41 +1,45 @@
 package com.webapp.service;
 
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.webapp.dao.HouseDao;
-import com.webapp.dao.RequestDao;
-import com.webapp.dao.UserDao;
+import com.webapp.dao.LeaseRequestDao;
+import com.webapp.dao.StudentDao;
 import com.webapp.model.House;
-import com.webapp.model.Request;
-import com.webapp.model.User;
+import com.webapp.model.LeaseRequest;
+import com.webapp.model.Student;
 
 @Service
-public class RequestService {
+public class LeaseRequestService {
 	@Autowired
-	private RequestDao requestDao;
+	private LeaseRequestDao leaseRequestDao;
 	@Autowired
-	private UserDao userDao;
+	private StudentDao studentDao;
 	@Autowired
 	private HouseDao houseDao;
 
-	public RequestService() {
+	public LeaseRequestService() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public void saveRequest(Request request) {
-		requestDao.save(request);
+	public void saveRequest(LeaseRequest leaseRequest) {
+		leaseRequestDao.save(leaseRequest);
 	}
-
-
-
-	public void saveUser(User user) {
-		userDao.save(user);
+	
+	public Student getStudent(int id){
+		return studentDao.get(id);
 	}
-
-	public void saveHouse(House house) {
-		houseDao.save(house);
+	public List<House> getHouses(String string){
+		String sqlstr = "select * from house";
+		String qlstr=sqlstr+ "where type like '%" + string+"%'" ;
+		return houseDao.findAll(qlstr);
 	}
-
+	public void delete(LeaseRequest leaseRequest){
+		leaseRequestDao.deleteById(leaseRequest.getId());
+	}
 
 }

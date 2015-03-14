@@ -1,11 +1,7 @@
 package com.webapp.dao.impl.sql;
 
-import static org.junit.Assert.assertEquals;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
-
 import javax.annotation.Resource;
 
 import org.junit.Test;

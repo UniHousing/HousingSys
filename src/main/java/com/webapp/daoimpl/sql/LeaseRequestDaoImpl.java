@@ -1,7 +1,6 @@
 package com.webapp.daoimpl.sql;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
