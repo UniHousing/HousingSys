@@ -15,7 +15,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.webapp.common.config.Global;
 import com.webapp.dao.Page;
 import com.webapp.model.House;
+import com.webapp.model.LeaseRequest;
 import com.webapp.service.HouseService;
+import com.webapp.service.LeaseRequestService;
 
 
 /**
@@ -24,46 +26,46 @@ import com.webapp.service.HouseService;
  * @version 2015-02-19
  */
 @Controller
-@RequestMapping(value = "${adminPath}/or/house")
+@RequestMapping(value = "${adminPath}/or/leaseRequest")
 public class LeaseRequestController {
 
 	@Autowired
-	private HouseService houseService;
+	private LeaseRequestService leaseRequestService;
 	
 	@ModelAttribute
-	public House get(@RequestParam(required=false) String id) {
+	public LeaseRequest get(@RequestParam(required=false) String id) {
 		System.out.println(id);
 		if (StringUtils.isNotBlank(id)&&!id.equals("0")){
-			return houseService.get(Integer.parseInt(id));
+			return leaseRequestService.get(Integer.parseInt(id));
 		}else{
-			return new House();
+			return new LeaseRequest();
 		}
 	}
 	
 	@RequestMapping(value = {"list", ""})
-	public String list(House house, HttpServletRequest request, HttpServletResponse response, Model model) {
-        Page<House> page = houseService.find(new Page<House>(request, response), house); 
+	public String list(LeaseRequest leaseRequest, HttpServletRequest request, HttpServletResponse response, Model model) {
+        Page<LeaseRequest> page = leaseRequestService.find(new Page<LeaseRequest>(request, response), leaseRequest); 
         model.addAttribute("page", page);
-		return "modules/" + "or/houseList";
+		return "modules/" + "or/leaseRequestList";
 	}
 
 	@RequestMapping(value = "form")
-	public String form(House house, Model model) {
-		model.addAttribute("house", house);
-		return "modules/" + "or/houseForm";
+	public String form(LeaseRequest leaseRequest, Model model) {
+		model.addAttribute("leaseRequest", leaseRequest);
+		return "modules/" + "or/leaseRequestForm";
 	}
 
 	@RequestMapping(value = "save")
-	public String save(House house, Model model, RedirectAttributes redirectAttributes) {
-		houseService.save(house);
-		return "redirect:"+Global.getAdminPath()+"/or/house/?repage";
+	public String save(LeaseRequest leaseRequest, Model model, RedirectAttributes redirectAttributes) {
+		leaseRequestService.save(leaseRequest);
+		return "redirect:"+Global.getAdminPath()+"/or/leaseRequest/?repage";
 	}
 	
 	@RequestMapping(value = "delete")
-	public String delete(House house, RedirectAttributes redirectAttributes) {
-		houseService.delete(house);
+	public String delete(LeaseRequest leaseRequest, RedirectAttributes redirectAttributes) {
+		leaseRequestService.delete(leaseRequest);
 		 
-		return "redirect:"+Global.getAdminPath()+"/or/house/?repage";
+		return "redirect:"+Global.getAdminPath()+"/or/leaseRequest/?repage";
 	}
 
 }
