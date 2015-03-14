@@ -15,10 +15,16 @@ public class RoomDaoImpl extends BaseSQLImpl<Room> implements RoomDao{
 
 	@Override
 	public void save(Room entity) {
-		// TODO Auto-generated method stub
-		this.jdbcTemplate.update("insert into room"
-				+ " (id,room_number,month_rate,house_id) values(?,?,?,?)",
-				entity.getId(),entity.getRoomNumber(),entity.getMonthRate(),entity.getHouseId());
+		if (entity.getId() == 0) {
+			this.jdbcTemplate.update("insert into room"
+					+ " (room_number,month_rate,house_id) values(?,?,?)",
+					entity.getRoomNumber(),entity.getMonthRate(),entity.getHouseId());
+		} else {
+			this.jdbcTemplate.update("update room"
+					+ "set room_number=?,month_rate=?,house_id=? where id=?",
+					entity.getRoomNumber(),entity.getMonthRate(),entity.getHouseId(),entity.getId());
+		}
+		
 	}
 
 	

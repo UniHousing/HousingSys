@@ -48,7 +48,7 @@ public class LeaseRequestDaoImpl extends BaseSQLImpl<LeaseRequest> implements Le
 					entity.getStartDate(),
 					entity.getEndDate());
 		} else {
-			this.jdbcTemplate.update("update lease_request set student_id=?,preference1=?,preference2=?,preference3=?,status=?,start_date=?,end_date=?, where id=?",
+			this.jdbcTemplate.update("update lease_request set student_id=?,preference1=?,preference2=?,preference3=?,status=?,start_date=?,end_date=? where id=?",
 					entity.getStudentId(),
 					entity.getPreference1(),
 					entity.getPreference2(),

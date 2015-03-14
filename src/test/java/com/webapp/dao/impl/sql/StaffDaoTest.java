@@ -30,7 +30,6 @@ public class StaffDaoTest extends SpringTransactionContextTest {
 	@Test
 	public void save() {
 		Staff staff=new Staff();
-		staff.setId("1");
 		staff.setAddr("Oval Drive");
 		staff.setBirthDate(new Date(1992, 2, 2));
 		staff.setCity("Raleigh");
@@ -48,7 +47,6 @@ public class StaffDaoTest extends SpringTransactionContextTest {
 	@Test
 	public void find() {
 		Staff staff = new Staff();
-		staff.setId("1");
 		staff.setAddr("Oval Drive");
 		staff.setBirthDate(new Date(1992, 2, 2));
 		staff.setCity("Raleigh");
@@ -68,7 +66,6 @@ public class StaffDaoTest extends SpringTransactionContextTest {
 	@Test
 	public void findAll() {
 		Staff staff=new Staff();
-		staff.setId("1");
 		staff.setAddr("Oval Drive");
 		staff.setBirthDate(new Date(1992, 2, 2));
 		staff.setCity("Raleigh");
@@ -80,7 +77,6 @@ public class StaffDaoTest extends SpringTransactionContextTest {
 		staff.setWorkAt("Office");
 		staffDao.save(staff);
 		Staff staff2=new Staff();
-		staff2.setId("2");
 		staff2.setAddr("Oval Drive");
 		staff2.setBirthDate(new Date(1992, 2, 2));
 		staff2.setCity("Raleigh");

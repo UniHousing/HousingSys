@@ -37,9 +37,14 @@ public class ParkingLotDaoImpl extends BaseSQLImpl<ParkingLot> implements Parkin
 	}
 
 	public void save(ParkingLot entity) {
-		// TODO Auto-generated method stub
-		this.jdbcTemplate.update("insert into parking_lot (id,num_parking_spot) values(?,?)",
-			entity.getId(),	entity.getNumParkingSpot());
+		if (entity.getId() == 0) {
+			this.jdbcTemplate.update("insert into parking_lot (num_parking_spot) values(?)",
+					entity.getNumParkingSpot());
+		} else {
+			this.jdbcTemplate.update("update parking_lot set num_parking_spot=? where id=?",
+					entity.getNumParkingSpot(),entity.getId());
+		}
+		
 	}
 
 	public void delete(ParkingLot entity) {

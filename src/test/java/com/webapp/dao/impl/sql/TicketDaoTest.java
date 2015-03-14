@@ -26,7 +26,6 @@ public class TicketDaoTest extends SpringTransactionContextTest {
 	@Test
 	public void save() {
 		Ticket ticket = new Ticket();
-		ticket.setId("1");
 		ticket.setDate(new Date(2015, 3, 14));
 		ticket.setLocation("House");
 		ticket.setStudentId("2");
@@ -39,7 +38,6 @@ public class TicketDaoTest extends SpringTransactionContextTest {
 	@Test
 	public void find() {
 		Ticket ticket = new Ticket();
-		ticket.setId("1");
 		ticket.setDate(new Date(2015, 3, 14));
 		ticket.setLocation("House");
 		ticket.setStudentId("2");
@@ -52,14 +50,12 @@ public class TicketDaoTest extends SpringTransactionContextTest {
 	@Test
 	public void findAll() {
 		Ticket ticket = new Ticket();
-		ticket.setId("1");
 		ticket.setDate(new Date(2015, 3, 14));
 		ticket.setLocation("House");
 		ticket.setStudentId("2");
 		ticket.setType("Maintenence");
 		ticketDao.save(ticket);
 		Ticket ticket2 = new Ticket();
-		ticket2.setId("2");
 		ticket2.setDate(new Date(2015, 4, 14));
 		ticket2.setLocation("Office");
 		ticket2.setStudentId("3");
