@@ -8,12 +8,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Invoice extends IdEntity<Invoice>{
 	
 	private String leaseId;
-	private Date payDate;
+	private String payDate;
+	private String payMethod;
 	private String status;
-	private float penalty;
-	private float damageCharge;
-	private float lateFee;
-	private float total;
+	private double penalty;
+	private double damageCharge;
+	private double lateFee;
+	private double total;
 	
 	public String getLeaseId() {
 		return leaseId;
@@ -21,11 +22,11 @@ public class Invoice extends IdEntity<Invoice>{
 	public void setLeaseId(String leaseId) {
 		this.leaseId = leaseId;
 	}
-	public Date getPayDate() {
+	public String getPayDate() {
 		return payDate;
 	}
-	public void setPayDate(Date payDate) {
-		this.payDate = payDate;
+	public void setPayDate(String dob) {
+		this.payDate = dob;
 	}
 	public String getStatus() {
 		return status;
@@ -33,28 +34,34 @@ public class Invoice extends IdEntity<Invoice>{
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public float getPenalty() {
+	public double getPenalty() {
 		return penalty;
 	}
-	public void setPenalty(float penalty) {
+	public void setPenalty(double penalty) {
 		this.penalty = penalty;
 	}
-	public float getDamageCharge() {
+	public double getDamageCharge() {
 		return damageCharge;
 	}
-	public void setDamageCharge(float damageCharge) {
-		this.damageCharge = damageCharge;
+	public void setDamageCharge(double d) {
+		this.damageCharge = d;
 	}
-	public float getLateFee() {
+	public double getLateFee() {
 		return lateFee;
 	}
-	public void setLateFee(float lateFee) {
+	public void setLateFee(double lateFee) {
 		this.lateFee = lateFee;
 	}
-	public float getTotal() {
+	public double getTotal() {
 		return total;
 	}
-	public void setTotal(float total) {
+	public void setTotal(double total) {
 		this.total = total;
+	}
+	public String getPayMethod() {
+		return payMethod;
+	}
+	public void setPayMethod(String payMethod) {
+		this.payMethod = payMethod;
 	}
 }

@@ -11,10 +11,16 @@ public class TicketDaoImpl extends BaseSQLImpl<Ticket> implements TicketDao{
 
 	@Override
 	public void save(Ticket entity) {
-		// TODO Auto-generated method stub
-		this.jdbcTemplate.update("insert into ticket"
-				+ " (id,type,student_id,date,location) values(?,?,?,?,?)",
-				entity.getId(),entity.getType(),entity.getStudentId(),entity.getDate(),entity.getLocation());
+		if (entity.getId() == 0) {
+			this.jdbcTemplate.update("insert into ticket"
+					+ " (type,student_id,date,location) values(?,?,?,?)",
+					entity.getType(),entity.getStudentId(),entity.getDate(),entity.getLocation());
+		} else {
+			this.jdbcTemplate.update("update ticket"
+					+ "set type=?,student_id=?,date=?,location=? where id=?",
+					entity.getType(),entity.getStudentId(),entity.getDate(),entity.getLocation(),entity.getId());
+		}
+	
 	}
 
 }

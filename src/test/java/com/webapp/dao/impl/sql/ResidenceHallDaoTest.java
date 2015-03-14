@@ -27,7 +27,6 @@ public class ResidenceHallDaoTest extends SpringTransactionContextTest {
 	@Test
 	public void save() {
 		ResidenceHall residenceHall=new ResidenceHall();
-		residenceHall.setId("1");
 		residenceHall.setName("Alex Hall");
 		residenceHall.setAddr("Oval Drive");
 		residenceHall.setTel("9194301321");
@@ -40,7 +39,6 @@ public class ResidenceHallDaoTest extends SpringTransactionContextTest {
 	@Test
 	public void find() {
 		ResidenceHall residenceHall = new ResidenceHall();
-		residenceHall.setId("1");
 		residenceHall.setName("Alex Hall");
 		residenceHall.setAddr("Oval Drive");
 		residenceHall.setTel("9194301321");
@@ -53,14 +51,12 @@ public class ResidenceHallDaoTest extends SpringTransactionContextTest {
 	@Test
 	public void findAll() {
 		ResidenceHall residenceHall=new ResidenceHall();
-		residenceHall.setId("1");
 		residenceHall.setName("Alex Hall");
 		residenceHall.setAddr("Oval Drive");
 		residenceHall.setTel("9194301321");
 		residenceHall.setManagerId("19");
 		residenceHallDao.save(residenceHall);
 		ResidenceHall residenceHall2=new ResidenceHall();
-		residenceHall2.setId("2");
 		residenceHall2.setName("Alex Hall");
 		residenceHall2.setAddr("Oval Drive");
 		residenceHall2.setTel("9194301321");
