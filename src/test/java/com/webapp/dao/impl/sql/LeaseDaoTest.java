@@ -22,7 +22,6 @@ public class LeaseDaoTest extends SpringTransactionContextTest {
 	@Test
 	public void save() {
 		Lease entity = new Lease();
-		entity.setId("1000");
 		entity.setStudentId("3000");
 		entity.setHouseId("2000");
 		entity.setRoomId("2001");
@@ -51,7 +50,6 @@ public class LeaseDaoTest extends SpringTransactionContextTest {
 		assertEquals(test.getHouseId(), "2000"); // Test findById
 		
 		Lease entity1 = new Lease();
-		entity1.setId("1001");
 		leaseDao.save(entity1);
 		List<Lease> lists = leaseDao.findAll();  // Test findAll
 		assertEquals(lists.size(), 2);

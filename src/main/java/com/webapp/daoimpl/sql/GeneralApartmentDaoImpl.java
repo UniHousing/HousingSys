@@ -71,5 +71,4 @@ public class GeneralApartmentDaoImpl extends BaseSQLImpl<GeneralApartment> imple
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 }

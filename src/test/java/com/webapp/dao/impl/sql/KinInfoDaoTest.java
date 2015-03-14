@@ -24,7 +24,6 @@ public class KinInfoDaoTest extends SpringTransactionContextTest {
 	@Test
 	public void save() {
 		KinInfo entity = new KinInfo();
-		entity.setId(1000);
 		entity.setAddr("900 Avent Ferry Rd.");
 		entity.setCity("Raleigh");
 		entity.setName("Ken");
@@ -37,7 +36,6 @@ public class KinInfoDaoTest extends SpringTransactionContextTest {
 		assertEquals(test.getStudentId(), "2000"); // Test findById
 		
 		KinInfo entity1 = new KinInfo();
-		entity1.setId(1001);
 		kinInfoDao.save(entity1);
 		List<KinInfo> lists = kinInfoDao.findAll(); // Test findAll
 		assertEquals(lists.size(), 2);

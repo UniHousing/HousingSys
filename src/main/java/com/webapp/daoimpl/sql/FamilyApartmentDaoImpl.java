@@ -57,13 +57,6 @@ public class FamilyApartmentDaoImpl extends BaseSQLImpl<FamilyApartment> impleme
 		String query = "delete from family_apartment where id='" + fApt.getId() + "' ";
 		jdbcTemplate.update(query);
 	}
-	
-	@Override
-	public void updateName(FamilyApartment fApt, String str) {
-		String query = "update family_apartment set name= '" + str + "' where id='"
-				+ fApt.getId() + "' ";
-		jdbcTemplate.update(query);
-	}
 
 	@Override
 	public FamilyApartment findById(Serializable id) {
@@ -77,6 +70,12 @@ public class FamilyApartmentDaoImpl extends BaseSQLImpl<FamilyApartment> impleme
 	public List<FamilyApartment> findAll(String qlstr) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void updateName(FamilyApartment fApartment, String string) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	

@@ -36,15 +36,27 @@ public class KinInfoDaoImpl extends BaseSQLImpl<KinInfo> implements KinInfoDao {
 
 	@Override
 	public void save(KinInfo entity) {
-		this.jdbcTemplate.update("insert into kin_info (id,student_id,name,relationship,addr,city,post_code,tel) values (?,?,?,?,?,?,?,?)",
-				entity.getId(),
-				entity.getStudentId(),
-				entity.getName(),
-				entity.getRelationship(),
-				entity.getAddr(),
-				entity.getCity(),
-				entity.getPostCode(),
-				entity.getTel());
+		if (entity.getId() == 0) {
+			this.jdbcTemplate.update("insert into kin_info (student_id,name,relationship,addr,city,post_code,tel) values (?,?,?,?,?,?,?)",
+					entity.getStudentId(),
+					entity.getName(),
+					entity.getRelationship(),
+					entity.getAddr(),
+					entity.getCity(),
+					entity.getPostCode(),
+					entity.getTel());
+		} else {
+			this.jdbcTemplate.update("update kin_info set student_id=?,name=?,relationship=?,addr=?,city=?,post_code=?,tel=? where id=?",
+					entity.getStudentId(),
+					entity.getName(),
+					entity.getRelationship(),
+					entity.getAddr(),
+					entity.getCity(),
+					entity.getPostCode(),
+					entity.getTel(),
+					entity.getId());
+		}
+		
 	}
 
 	@Override

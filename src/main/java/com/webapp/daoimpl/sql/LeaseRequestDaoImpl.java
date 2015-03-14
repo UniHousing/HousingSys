@@ -37,16 +37,28 @@ public class LeaseRequestDaoImpl extends BaseSQLImpl<LeaseRequest> implements Le
 
 	@Override
 	public void save(LeaseRequest entity) {
-		this.jdbcTemplate.update("insert into lease_request (id,student_id,preference1,preference2,preference3,status,start_date,end_date"
-				+ ") values (?,?,?,?,?,?,?,?)",
-				entity.getId(),
-				entity.getStudentId(),
-				entity.getPreference1(),
-				entity.getPreference2(),
-				entity.getPreference3(),
-				entity.getStatus(),
-				entity.getStartDate(),
-				entity.getEndDate());
+		if (entity.getId() == 0) {
+			this.jdbcTemplate.update("insert into lease_request (student_id,preference1,preference2,preference3,status,start_date,end_date"
+					+ ") values (?,?,?,?,?,?,?)",
+					entity.getStudentId(),
+					entity.getPreference1(),
+					entity.getPreference2(),
+					entity.getPreference3(),
+					entity.getStatus(),
+					entity.getStartDate(),
+					entity.getEndDate());
+		} else {
+			this.jdbcTemplate.update("update lease_request set student_id=?,preference1=?,preference2=?,preference3=?,status=?,start_date=?,end_date=?, where id=?",
+					entity.getStudentId(),
+					entity.getPreference1(),
+					entity.getPreference2(),
+					entity.getPreference3(),
+					entity.getStatus(),
+					entity.getStartDate(),
+					entity.getEndDate(),
+					entity.getId());
+		}
+		
 	}
 
 	@Override

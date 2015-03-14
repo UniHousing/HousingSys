@@ -15,11 +15,18 @@ public class FamilyMemberDaoImpl extends BaseSQLImpl<FamilyMember> implements Fa
 
 	@Override
 	public void save(FamilyMember fmember) {
-		this.jdbcTemplate.update("insert into family_member (id, student_id, name, birth_date) values(?,?,?,?)",
-				fmember.getId(),
-				fmember.getStudentId(), 
-				fmember.getName(),
-				fmember.getBirthDate());
+		if (fmember.getId() == 0) {
+			this.jdbcTemplate.update("insert into family_member (student_id, name, birth_date) values(?,?,?)",
+					fmember.getStudentId(), 
+					fmember.getName(),
+					fmember.getBirthDate());
+		} else {
+			this.jdbcTemplate.update("update family_member set student_id=?, name=?, birth_date=? where id=?",
+					fmember.getStudentId(), 
+					fmember.getName(),
+					fmember.getBirthDate(),
+					fmember.getId());
+		}
 	}
 
 	@Override
