@@ -7,7 +7,6 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.stereotype.Component;
 
 import com.webapp.dao.GeneralApartmentDao;
-import com.webapp.model.FamilyApartment;
 import com.webapp.model.GeneralApartment;
 
 @Component
@@ -62,7 +61,7 @@ public class GeneralApartmentDaoImpl extends BaseSQLImpl<GeneralApartment> imple
 		String sql = "select * from general_apartment";
 		@SuppressWarnings({ "rawtypes", "unchecked" })
 		List<GeneralApartment> gApts = jdbcTemplate.query(sql, new BeanPropertyRowMapper(
-				FamilyApartment.class));
+				GeneralApartment.class));
 		return gApts;
 	}
 
