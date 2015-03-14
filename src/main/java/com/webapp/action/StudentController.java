@@ -54,8 +54,8 @@ public class StudentController {
 	}
 
 	@RequestMapping(value = "save")
-	public String save(Student entity, Model model, RedirectAttributes redirectAttributes) {
-		studentService.save(entity);
+	public String save(Student student, Model model, RedirectAttributes redirectAttributes) {
+		studentService.save(student);
 		return "redirect:"+Global.getAdminPath()+"/or/student/?repage";
 	}
 	

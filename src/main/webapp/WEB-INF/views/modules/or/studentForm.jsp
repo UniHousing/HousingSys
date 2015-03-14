@@ -33,118 +33,99 @@
 			<div class="controls">
 				<form:input path="fname" htmlEscape="false" maxlength="200" class="required"/>
 			</div>
+		</div>
+		<div class="control-group">
 			<label class="control-label" for="name">LastName:</label>
 			<div class="controls">
 				<form:input path="lname" htmlEscape="false" maxlength="200" class="required"/>
 			</div>
-			<label class="control-label">student Type：</label>
-			<div class="controls" id="student-type">
-			
-					<form:input path="type" htmlEscape="false" maxlength="200" class="required"/>
-				
-			</div>
-			<label class="control-label">Gender：</label>
-			<div class="controls" id="gender">
-			
-					<form:input path="gender" htmlEscape="false" maxlength="200" class="required"/>
-				
-			</div>
-			
-			<label class="control-label">Tel：</label>
-			<div class="controls" id="tel">
-			
-					<form:input path="tel" htmlEscape="false" maxlength="200" class="required"/>
-				
-			</div>
-			<label class="control-label">Alternative Tel：</label>
-			<div class="controls" id="alter_tel">
-			
-					<form:input path="alterTel" htmlEscape="false" maxlength="200" class="required"/>
-				
-			</div>
-			<label class="control-label">Address：</label>
-			<div class="controls" id="addr">
-			
-					<form:input path="addr" htmlEscape="false" maxlength="200" class="required"/>
-				
-			</div>
-			<label class="control-label">City：</label>
-			<div class="controls" id="city">
-			
-					<form:input path="city" htmlEscape="false" maxlength="200" class="required"/>
-				
-			</div>
-			<label class="control-label">Postal Code：</label>
-			<div class="controls" id="post_code">
-			
-					<form:input path="postCode" htmlEscape="false" maxlength="200" class="required"/>
-				
-			</div>
-			<label class="control-label">Birth Date：</label>
-			<div class="controls" id="birth_date">
-			
-					<form:input path="birthDate" htmlEscape="false" maxlength="200" class="required"/>
-				
-			</div>
-			<label class="control-label">Category：</label>
-			<div class="controls" id="category">
-			
-					<form:input path="category" htmlEscape="false" maxlength="200" class="required"/>
-				
-			</div>
-			<label class="control-label">Nationality：</label>
-			<div class="controls" id="nation">
-			
-					<form:input path="nation" htmlEscape="false" maxlength="200" class="required"/>
-				
-			</div>
-			<label class="control-label">Smoker：</label>
-			<div class="controls" id="smoker">
-			
-					<form:input path="smoker" htmlEscape="false" maxlength="200" class="required"/>
-				
-			</div>
-			<label class="control-label">Special Need：</label>
-			<div class="controls" id="need">
-			
-					<form:input path="need" htmlEscape="false" maxlength="200" class="required"/>
-				
-			</div>
-			<label class="control-label">Comment：</label>
-			<div class="controls" id="comment">
-			
-					<form:input path="comment" htmlEscape="false" maxlength="200" class="required"/>
-				
-			</div>
-			<label class="control-label">Status：</label>
-			<div class="controls" id="status">
-			
-					<form:input path="status" htmlEscape="false" maxlength="200" class="required"/>
-				
-			</div>
-			<label class="control-label">Courses：</label>
-			<div class="controls" id="courses">
-			
-					<form:input path="courses" htmlEscape="false" maxlength="200" class="required"/>
-				
-			</div>
-			<label class="control-label">Approval ID：</label>
-			<div class="controls" id="approval_id">
-			
-					<form:input path="approvalId" htmlEscape="false" maxlength="200" class="required"/>
-				
-			</div>
-			<label class="control-label">KIN ID：</label>
-			<div class="controls" id="kin_id">
-			
-					<form:input path="kinId" htmlEscape="false" maxlength="200" class="required"/>
-				
-			</div>
-			
-		
 		</div>
-
-		
+		<div class="control-group">
+			<label class="control-label" for="endTime">Birth Date：</label>
+			<div class="controls">
+				<input id="birthDate" name="birthDate" type="text" readonly="readonly" maxlength="20" class="Wdate required"
+					value="<fmt:formatDate value="${student.birthDate}" pattern="yyyy-MM-dd "/>"
+					onclick="WdatePicker({dateFmt:'yyyy-MM-dd',isShowClear:false});"/>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="name">Type:</label>
+			<div class="controls">
+				<form:input path="type" htmlEscape="false" maxlength="200" class="required"/>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="name">telephone:</label>
+			<div class="controls">
+				<form:input path="tel" htmlEscape="false" maxlength="200" class="required"/>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="name">Alternative Telephone:</label>
+			<div class="controls">
+				<form:input path="alterTel" htmlEscape="false" maxlength="200" class="required"/>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="name">Address:</label>
+			<div class="controls">
+				<form:input path="addr" htmlEscape="false" maxlength="200" class="required"/>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="name">City:</label>
+			<div class="controls">
+				<form:input path="city" htmlEscape="false" maxlength="200" class="required"/>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="name">Post Code:</label>
+			<div class="controls">
+				<form:input path="postCode" htmlEscape="false" maxlength="200" class="required"/>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="name">Category:</label>
+			<div class="controls">
+				<form:input path="category" htmlEscape="false" maxlength="200" class="required"/>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="name">Nation:</label>
+			<div class="controls">
+				<form:input path="nation" htmlEscape="false" maxlength="200" class="required"/>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="name">Somker:</label>
+			<div class="controls">
+				<form:input path="smoker" htmlEscape="false" maxlength="200" class="required"/>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="name">Need:</label>
+			<div class="controls">
+				<form:input path="need" htmlEscape="false" maxlength="200" />
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="name">Comment:</label>
+			<div class="controls">
+				<form:input path="comment" htmlEscape="false" maxlength="200" class="required"/>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="name">Status:</label>
+			<div class="controls">
+				<form:input path="status" htmlEscape="false" maxlength="200" class="required"/>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="name">courses:</label>
+			<div class="controls">
+				<form:input path="courses" htmlEscape="false" maxlength="200" class="required"/>
+			</div>
+		</div>
 		<div class="form-actions">
 			<shiro:hasPermission name="or:student:edit">
 				<input id="btnSubmit" class="btn btn-primary" type="submit" value="Save"/>&nbsp;

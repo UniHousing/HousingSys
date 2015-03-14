@@ -2,6 +2,11 @@ package com.webapp.model;
 
 import java.util.Date;
 
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Student extends IdEntity<Student> {
 	
 	private String fname;
@@ -13,6 +18,7 @@ public class Student extends IdEntity<Student> {
 	private String addr;
 	private String city;
 	private String postCode;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date birthDate;
 	private String category; // First year/Graduate
 	private String nation;
@@ -78,6 +84,8 @@ public class Student extends IdEntity<Student> {
 	public void setPostCode(String postCode) {
 		this.postCode = postCode;
 	}
+	
+	
 	public Date getBirthDate() {
 		return birthDate;
 	}
