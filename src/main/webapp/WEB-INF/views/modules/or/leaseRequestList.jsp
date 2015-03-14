@@ -2,80 +2,53 @@
 <%@ include file="/WEB-INF/views/include/taglib.jsp"%>
 <html>
 <head>
-	<title>Student Management</title>
+	<title>leaseRequest manage</title>
 	<meta name="decorator" content="default"/>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			$("#name").focus();
-			$("#inputForm").validate();
-			$("#studentType").on("change",function(){
-				var studenttype = $(this).val();
-				if(studenttype == 1){
-				  $(".control-group.apartment").hide();
-				}else{
-				  $(".control-group.apartment").show();
-				}
-			});
+			
 		});
+		function page(n,s){
+			$("#pageNo").val(n);
+			$("#pageSize").val(s);
+			$("#searchForm").submit();
+        	return false;
+        }
 	</script>
 </head>
 <body>
 	<ul class="nav nav-tabs">
-		<li><a href="${ctx}/or/student/">leaseRequest List</a></li>
-		<li class="active"><a href="${ctx}/or/student/form?id=${leaseRequest.id}">leaseRequest<shiro:hasPermission name="or:leaseRequest:edit">${not empty leaseRequest.id?'edit':'add'}</shiro:hasPermission><shiro:lacksPermission name="or:leaseRequest:edit">view</shiro:lacksPermission></a></li>
-	</ul><br/>
-	
-	<form:form id="inputForm" modelAttribute="leaseRequest" action="${ctx}/or/leaseRequest/save" method="post" class="form-horizontal">
-		<form:hidden path="id"/>
-		<tags:message content="${message}"/>
-		<div class="control-group">
-			<label class="control-label" for="name">studentId:</label>
-			<div class="controls">
-				<form:input path="fname" htmlEscape="false" maxlength="200" class="required"/>
-			</div>
-		</div>
-		<div class="control-group">
-			<label class="control-label" for="name">preference1:</label>
-			<div class="controls">
-				<form:input path="fname" htmlEscape="false" maxlength="200" class="required"/>
-			</div>
-		</div>
-		<div class="control-group">
-			<label class="control-label" for="name">preference2:</label>
-			<div class="controls">
-				<form:input path="fname" htmlEscape="false" maxlength="200" class="required"/>
-			</div>
-		</div>
-		<div class="control-group">
-			<label class="control-label" for="name">preference3:</label>
-			<div class="controls">
-				<form:input path="fname" htmlEscape="false" maxlength="200" class="required"/>
-			</div>
-		</div>
-		<div class="control-group">
-			<label class="control-label" for="name">status:</label>
-			<div class="controls">
-				<form:input path="fname" htmlEscape="false" maxlength="200" class="required"/>
-			</div>
-		</div>
-		<div class="control-group">
-			<label class="control-label" for="name">startDate:</label>
-			<div class="controls">
-				<form:input path="fname" htmlEscape="false" maxlength="200" class="required"/>
-			</div>
-		</div>
-		<div class="control-group">
-			<label class="control-label" for="name">endDate:</label>
-			<div class="controls">
-				<form:input path="fname" htmlEscape="false" maxlength="200" class="required"/>
-			</div>
-		</div>
-		<div class="form-actions">
-			<shiro:hasPermission name="or:student:edit">
-				<input id="btnSubmit" class="btn btn-primary" type="submit" value="Save"/>&nbsp;
-			</shiro:hasPermission>
-			<input id="btnCancel" class="btn" type="button" value="Back" onclick="history.go(-1)"/>
-		</div>
+		<li class="active"><a href="${ctx}/or/student/">leaseRequest list</a></li>
+		<li><a href="${ctx}/or/student/form">add leaseRequest</a></li>
+	</ul>
+	<form:form id="searchForm" modelAttribute="leaseRequest" action="${ctx}/or/leaseRequest/" method="post" class="breadcrumb form-search">
+		<input id="pageNo" name="pageNo" type="hidden" value="${page.pageNo}"/>
+		<input id="pageSize" name="pageSize" type="hidden" value="${page.pageSize}"/>
+		<label>fname ：</label><form:input path="fname" htmlEscape="false" maxlength="50" class="input-small"/>
+		<label>type ：</label><form:input path="type" htmlEscape="false" maxlength="50" class="input-small"/>
+		&nbsp;<input id="btnSubmit" class="btn btn-primary" type="submit" value="Search"/>
 	</form:form>
+	<tags:message content="${message}"/>
+	<table id="contentTable" class="table table-striped table-bordered table-condensed">
+		<thead><tr><th>studentId</th><th>preference1</th><th>preference2</th><th>preference3</th><th>status</th><th>startDate</th><th>endDate</th><shiro:hasPermission name="or:leaseRequest:edit"><th>operation</th></shiro:hasPermission></tr></thead>
+		<tbody>
+		<c:forEach items="${page.list}" var="leaseRequest">
+			<tr>
+				<td><a href="${ctx}/or/leaseRequest/form?id=${leaseRequest.id}">${leaseRequest.studentId}</a></td>
+				<td>${leaseRequest.preference1}</td>
+				<td>${leaseRequest.preference2}</td>
+				<td>${leaseRequest.preference3}</td>
+				<td>${leaseRequest.status}</td>
+				<td>${leaseRequest.startDate}</td>
+				<td>${leaseRequest.endDate}</td>
+				<shiro:hasPermission name="or:leaseRequest:edit"><td>
+    				<a href="${ctx}/or/student/form?id=${leaseRequest.id}">edit</a>
+					<a href="${ctx}/or/student/delete?id=${leaseRequest.id}" onclick="return confirmx('are you sure delete this leaseRequest？', this.href)">delete</a>
+				</td></shiro:hasPermission>
+			</tr>
+		</c:forEach>
+		</tbody>
+	</table>
+	<div class="pagination">${page}</div>
 </body>
 </html>

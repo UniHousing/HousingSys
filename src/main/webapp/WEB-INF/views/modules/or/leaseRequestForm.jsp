@@ -61,13 +61,17 @@
 		<div class="control-group">
 			<label class="control-label" for="name">startDate:</label>
 			<div class="controls">
-				<form:input path="fname" htmlEscape="false" maxlength="200" class="required"/>
+				<input id="startDate" name="startDate" type="text" readonly="readonly" maxlength="20" class="Wdate required"
+					value="<fmt:formatDate value="${LeaseRequest.startDate}" pattern="yyyy-MM-dd "/>"
+					onclick="WdatePicker({dateFmt:'yyyy-MM-dd',isShowClear:false});"/>
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label" for="name">endDate:</label>
 			<div class="controls">
-				<form:input path="fname" htmlEscape="false" maxlength="200" class="required"/>
+				<input id="endDate" name="endDate" type="text" readonly="readonly" maxlength="20" class="Wdate required"
+					value="<fmt:formatDate value="${LeaseRequest.endDate}" pattern="yyyy-MM-dd "/>"
+					onclick="WdatePicker({dateFmt:'yyyy-MM-dd',isShowClear:false});"/>
 			</div>
 		</div>
 		<div class="form-actions">
