@@ -30,20 +30,15 @@
 	</form:form>
 	<tags:message content="${message}"/>
 	<table id="contentTable" class="table table-striped table-bordered table-condensed">
-		<thead><tr><th>studentId</th><th>preference1</th><th>preference2</th><th>preference3</th><th>status</th><th>startDate</th><th>endDate</th><shiro:hasPermission name="or:leaseRequest:edit"><th>operation</th></shiro:hasPermission></tr></thead>
+		<thead><tr><th>Student Id</th><th>Preference 1</th><shiro:hasPermission name="or:leaseRequest:edit"><th>operation</th></shiro:hasPermission></tr></thead>
 		<tbody>
-		<c:forEach items="${page.list}" var="leaseRequest">
+		<c:forEach items="${page.list}" var="lease_request">
 			<tr>
-				<td><a href="${ctx}/or/leaseRequest/form?id=${leaseRequest.id}">${leaseRequest.studentId}</a></td>
-				<td>${leaseRequest.preference1}</td>
-				<td>${leaseRequest.preference2}</td>
-				<td>${leaseRequest.preference3}</td>
-				<td>${leaseRequest.status}</td>
-				<td>${leaseRequest.startDate}</td>
-				<td>${leaseRequest.endDate}</td>
+				<td><a href="${ctx}/or/leaseRequest/form?id=${lease_request.id}">${lease_request.studentId}</a></td>
+	
 				<shiro:hasPermission name="or:leaseRequest:edit"><td>
-    				<a href="${ctx}/or/leaseRequest/form?id=${leaseRequest.id}">edit</a>
-					<a href="${ctx}/or/leaseRequest/delete?id=${leaseRequest.id}" onclick="return confirmx('are you sure delete this leaseRequest？', this.href)">delete</a>
+    				<a href="${ctx}/or/leaseRequest/form?id=${lease_request.id}">edit</a>
+					<a href="${ctx}/or/leaseRequest/delete?id=${lease_request.id}" onclick="return confirmx('are you sure delete this leaseRequest？', this.href)">delete</a>
 				</td></shiro:hasPermission>
 			</tr>
 		</c:forEach>

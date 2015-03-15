@@ -3,7 +3,6 @@ package com.webapp.service;
 
 import java.util.List;
 
-import org.apache.cassandra.thrift.Cassandra.system_add_column_family_args;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,24 +50,17 @@ public class LeaseRequestService {
 		return leaseRequestDao.get(id);
 	}
 
-	public Page<LeaseRequest> find(Page<LeaseRequest> page,
-			LeaseRequest entity) {
-		// TODO Auto-generated method stub
+	public Page<LeaseRequest> find(Page<LeaseRequest> page, LeaseRequest leaseRequest){
 		String sqlstr = "select * from lease_request";
 		Parameter parameter = new Parameter();
-		if(StringUtils.isNotBlank(entity.getStudentId())){
-			parameter.put("student_id", new Object[]{"like", "'%"+entity.getStudentId()+"%'"});
-		}
-		if(StringUtils.isNotBlank(entity.getPreference1())){
-			parameter.put("preference1", new Object[]{"like", "'%"+entity.getPreference1()+"%'"});
-		}
-		if(StringUtils.isNotBlank(entity.getPreference2())){
-			parameter.put("preference2", new Object[]{"like", "'%"+entity.getPreference2()+"%'"});
-		}
 		
-		if(StringUtils.isNotBlank(entity.getPreference3())){
-			parameter.put("preference3", new Object[]{"like", "'%"+entity.getPreference3()+"%'"});
+		if(StringUtils.isNotBlank(leaseRequest.getStudentId())){
+			parameter.put("student_id", new Object[]{"=", "'"+leaseRequest.getStudentId()+"'"});
 		}
+		if(StringUtils.isNotBlank(leaseRequest.getPreference1())){
+			parameter.put("preference1", new Object[]{"like", "'%"+leaseRequest.getPreference1()+"%'"});
+		}
+
 		page = leaseRequestDao.find(page,sqlstr, parameter);
 		return page;
 	}
