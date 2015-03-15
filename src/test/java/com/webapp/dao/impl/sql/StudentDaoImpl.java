@@ -8,11 +8,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.webapp.common.test.SpringTransactionContextTest;
-import com.webapp.dao.HouseDao;
-import com.webapp.dao.Page;
-import com.webapp.dao.Parameter;
 import com.webapp.dao.StudentDao;
-import com.webapp.model.House;
 import com.webapp.model.Student;
 
 public class StudentDaoImpl extends SpringTransactionContextTest {

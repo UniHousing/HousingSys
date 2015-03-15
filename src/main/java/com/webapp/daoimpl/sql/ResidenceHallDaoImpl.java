@@ -11,11 +11,16 @@ public class ResidenceHallDaoImpl extends BaseSQLImpl<ResidenceHall> implements 
 
 	@Override
 	public void save(ResidenceHall entity) {
-		// TODO Auto-generated method stub
-		this.jdbcTemplate.update("insert into residence_hall"
-				+ " (id,name,addr,tel,manager_id) values(?,?,?,?,?)",
-				entity.getId(),entity.getName(),
-				entity.getAddr(),entity.getTel(),entity.getManagerId()	);
+		if (entity.getId() == 0) {
+			this.jdbcTemplate.update("insert into residence_hall"
+					+ " (name,addr,tel,manager_id) values(?,?,?,?)",
+					entity.getName(),entity.getAddr(),entity.getTel(),entity.getManagerId()	);
+		} else {
+			this.jdbcTemplate.update("update residence_hall"
+					+ "set name=?,addr=?,tel=?,manager_id=? where id=?",
+					entity.getName(),entity.getAddr(),entity.getTel(),entity.getManagerId(),entity.getId());
+		}
+
 	}
 
 

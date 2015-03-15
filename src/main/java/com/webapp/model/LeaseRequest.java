@@ -3,6 +3,7 @@ package com.webapp.model;
 import java.util.Date;
 
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Document
 public class LeaseRequest extends IdEntity<LeaseRequest> {
@@ -12,7 +13,9 @@ public class LeaseRequest extends IdEntity<LeaseRequest> {
 	private String preference2;
 	private String preference3;
 	private String status;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date startDate;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date endDate;
 	
 	public String getStudentId() {

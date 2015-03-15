@@ -7,15 +7,12 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.apache.cassandra.cli.CliParser.newColumnFamily_return;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.webapp.common.test.SpringTransactionContextTest;
-import com.webapp.dao.ParkingSpotDao;
 import com.webapp.dao.StaffDao;
-import com.webapp.model.ParkingSpot;
 import com.webapp.model.Staff;
 
 public class StaffDaoTest extends SpringTransactionContextTest {
@@ -30,7 +27,6 @@ public class StaffDaoTest extends SpringTransactionContextTest {
 	@Test
 	public void save() {
 		Staff staff=new Staff();
-		staff.setId("1");
 		staff.setAddr("Oval Drive");
 		staff.setBirthDate(new Date(1992, 2, 2));
 		staff.setCity("Raleigh");
@@ -48,7 +44,6 @@ public class StaffDaoTest extends SpringTransactionContextTest {
 	@Test
 	public void find() {
 		Staff staff = new Staff();
-		staff.setId("1");
 		staff.setAddr("Oval Drive");
 		staff.setBirthDate(new Date(1992, 2, 2));
 		staff.setCity("Raleigh");
@@ -68,7 +63,6 @@ public class StaffDaoTest extends SpringTransactionContextTest {
 	@Test
 	public void findAll() {
 		Staff staff=new Staff();
-		staff.setId("1");
 		staff.setAddr("Oval Drive");
 		staff.setBirthDate(new Date(1992, 2, 2));
 		staff.setCity("Raleigh");
@@ -80,7 +74,6 @@ public class StaffDaoTest extends SpringTransactionContextTest {
 		staff.setWorkAt("Office");
 		staffDao.save(staff);
 		Staff staff2=new Staff();
-		staff2.setId("2");
 		staff2.setAddr("Oval Drive");
 		staff2.setBirthDate(new Date(1992, 2, 2));
 		staff2.setCity("Raleigh");

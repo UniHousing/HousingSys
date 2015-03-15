@@ -12,9 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.webapp.common.test.SpringTransactionContextTest;
-import com.webapp.dao.ParkingSpotDao;
 import com.webapp.dao.TerminReqDao;
-import com.webapp.model.ParkingSpot;
 import com.webapp.model.TerminReq;
 
 public class TerminReqDaoTest extends SpringTransactionContextTest {
@@ -29,7 +27,6 @@ public class TerminReqDaoTest extends SpringTransactionContextTest {
 	@Test
 	public void save() {
 		TerminReq terminReq= new TerminReq();
-		terminReq.setId("1");
 		terminReq.setLeaseId("2");
 		terminReq.setReason("abc");
 		terminReq.setExtraFee(100);
@@ -44,7 +41,6 @@ public class TerminReqDaoTest extends SpringTransactionContextTest {
 	 @Test
 	public void find() {
 		 TerminReq terminReq= new TerminReq();
-			terminReq.setId("1");
 			terminReq.setLeaseId("2");
 			terminReq.setReason("abc");
 			terminReq.setExtraFee(100);
@@ -60,7 +56,6 @@ public class TerminReqDaoTest extends SpringTransactionContextTest {
 	@Test
 	public void findAll() {
 		TerminReq terminReq= new TerminReq();
-		terminReq.setId("1");
 		terminReq.setLeaseId("2");
 		terminReq.setReason("abc");
 		terminReq.setExtraFee(100);
@@ -69,7 +64,6 @@ public class TerminReqDaoTest extends SpringTransactionContextTest {
 		terminReq.setStatus("pending");
 		terminReqDao.save(terminReq);
 		TerminReq terminReq2= new TerminReq();
-		terminReq2.setId("2");
 		terminReq2.setLeaseId("5");
 		terminReq2.setReason("abcd");
 		terminReq2.setExtraFee(1040);

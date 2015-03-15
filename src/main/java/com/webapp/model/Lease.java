@@ -1,7 +1,5 @@
 package com.webapp.model;
 
-import java.util.Date;
-
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
@@ -13,12 +11,12 @@ public class Lease extends IdEntity<Lease>{
 	private String parkingId;
 	private int roomNum;
 	private String duration;
-	private Date enterDate;
-	private Date leaveDate;
-	private float deposit;
+	private String enterDate;
+	private String leaveDate;
+	private double deposit;
 	private String payment;
-	private float penalty;
-	private Date inspectDate;
+	private double penalty;
+	private String inspectDate;
 	
 	public String getStudentId() {
 		return studentId;
@@ -56,23 +54,23 @@ public class Lease extends IdEntity<Lease>{
 	public void setDuration(String duration) {
 		this.duration = duration;
 	}
-	public Date getEnterDate() {
+	public String getEnterDate() {
 		return enterDate;
 	}
-	public void setEnterDate(Date enterDate) {
+	public void setEnterDate(String enterDate) {
 		this.enterDate = enterDate;
 	}
-	public Date getLeaveDate() {
+	public String getLeaveDate() {
 		return leaveDate;
 	}
-	public void setLeaveDate(Date leaveDate) {
+	public void setLeaveDate(String leaveDate) {
 		this.leaveDate = leaveDate;
 	}
-	public float getDeposit() {
+	public double getDeposit() {
 		return deposit;
 	}
-	public void setDeposit(float deposit) {
-		this.deposit = deposit;
+	public void setDeposit(double d) {
+		this.deposit = d;
 	}
 	public String getPayment() {
 		return payment;
@@ -80,16 +78,16 @@ public class Lease extends IdEntity<Lease>{
 	public void setPayment(String payment) {
 		this.payment = payment;
 	}
-	public float getPenalty() {
+	public double getPenalty() {
 		return penalty;
 	}
-	public void setPenalty(float penalty) {
+	public void setPenalty(double penalty) {
 		this.penalty = penalty;
 	}
-	public Date getInspectDate() {
+	public String getInspectDate() {
 		return inspectDate;
 	}
-	public void setInspectDate(Date inspectDate) {
+	public void setInspectDate(String inspectDate) {
 		this.inspectDate = inspectDate;
 	}
 }

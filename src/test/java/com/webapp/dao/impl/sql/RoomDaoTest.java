@@ -26,7 +26,6 @@ public class RoomDaoTest extends SpringTransactionContextTest {
 	public void save() {
 		Room room = new Room();
 		room.setHouseId("10");
-		room.setId("1");
 		room.setMonthRate(300);
 		room.setRoomNumber("2003");
 		roomDao.save(room);
@@ -37,7 +36,6 @@ public class RoomDaoTest extends SpringTransactionContextTest {
 	public void find() {
 		Room room = new Room();
 		room.setHouseId("10");
-		room.setId("1");
 		room.setMonthRate(300);
 		room.setRoomNumber("2003");
 		roomDao.save(room);
@@ -50,13 +48,11 @@ public class RoomDaoTest extends SpringTransactionContextTest {
 	public void findAll() {
 		Room room = new Room();
 		room.setHouseId("10");
-		room.setId("1");
 		room.setMonthRate(300);
 		room.setRoomNumber("2003");
 		roomDao.save(room);
 		Room room2 = new Room();
 		room2.setHouseId("10");
-		room2.setId("2");
 		room2.setMonthRate(305);
 		room2.setRoomNumber("2003");
 		roomDao.save(room2);

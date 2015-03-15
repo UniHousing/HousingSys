@@ -11,6 +11,7 @@ public class StudentDaoImpl extends BaseSQLImpl<Student> implements StudentDao {
 
 	@Override
 	public void save(Student entity) {
+
 		if(entity.getId()==0){
 			this.jdbcTemplate.update("insert into student (fname,lname,type,"
 				+ "gender,tel,alter_tel,addr,city,post_code,birth_date,category,"
@@ -30,7 +31,7 @@ public class StudentDaoImpl extends BaseSQLImpl<Student> implements StudentDao {
 					entity.getCity(),entity.getPostCode(),entity.getBirthDate(),entity.getCategory(),
 					entity.getNation(),entity.getSmoker(),entity.getNeed(),entity.getComment(),
 					entity.getStatus(),entity.getCourses(),entity.getApprovalId(),entity.getKinId());
+
 		}
 	}
-
 }
