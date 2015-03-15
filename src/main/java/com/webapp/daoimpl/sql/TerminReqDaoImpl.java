@@ -12,31 +12,6 @@ import com.webapp.model.TerminReq;
 public class TerminReqDaoImpl extends BaseSQLImpl<TerminReq> implements TerminReqDao{
 
 	@Override
-	public TerminReq findById(Serializable id) {
-		// TODO Auto-generated method stub
-		String sql = "SELECT * FROM terminate_request WHERE id = ?";
-		TerminReq terminReq = jdbcTemplate.queryForObject(sql, new Object[] { id },
-				new BeanPropertyRowMapper<TerminReq>(TerminReq.class));
-		return terminReq;
-	}
-
-	@Override
-	public List<TerminReq> findAll() {
-		// TODO Auto-generated method stub
-		String sql = "select * from terminate_request ";
-		@SuppressWarnings({ "rawtypes", "unchecked" })
-		List<TerminReq> terminReqs = jdbcTemplate.query(sql, new BeanPropertyRowMapper(
-				TerminReq.class));
-		return terminReqs;
-	}
-
-	@Override
-	public List<TerminReq> findAll(String qlstr) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public void save(TerminReq entity) {
 		if (entity.getId() == 0) {
 			this.jdbcTemplate.update("insert into terminate_request"

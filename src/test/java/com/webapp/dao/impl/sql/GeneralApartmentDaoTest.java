@@ -47,12 +47,7 @@ public class GeneralApartmentDaoTest extends SpringTransactionContextTest {
 		gApt2.setRoomCount(5);
 		gApt2.setBathCount(2);
 		gAptDao.save(gApt2);
-		
-		List<GeneralApartment> gampts = gAptDao.findByName("Tower Hall");   // FindByName Test
-		assertEquals(gampts.size(), 2);
-		
-		gAptDao.delete(gApt);
-		gAptDao.delete(gApt2);
+
 	}
 	
 	@Test

@@ -11,28 +11,6 @@ import com.webapp.model.KinInfo;
 @Component
 public class KinInfoDaoImpl extends BaseSQLImpl<KinInfo> implements KinInfoDao {
 
-	@Override
-	public KinInfo findById(Serializable id) {
-		String sql = "SELECT * FROM kin_info WHERE id = ?";
-		KinInfo entity = jdbcTemplate.queryForObject(sql, new Object[] { id },
-				new BeanPropertyRowMapper<KinInfo>(KinInfo.class));
-		return entity;
-	}
-
-	@Override
-	public List<KinInfo> findAll() {
-		String sql = "select * from kin_info";
-		@SuppressWarnings({ "rawtypes", "unchecked" })
-		List<KinInfo> entities = jdbcTemplate.query(sql, new BeanPropertyRowMapper(
-				KinInfo.class));
-		return entities;
-	}
-
-	@Override
-	public List<KinInfo> findAll(String qlstr) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public void save(KinInfo entity) {

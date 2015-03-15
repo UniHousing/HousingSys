@@ -12,29 +12,6 @@ import com.webapp.model.Lease;
 public class LeaseDaoImpl extends BaseSQLImpl<Lease> implements LeaseDao {
 
 	@Override
-	public Lease findById(Serializable id) {
-		String sql = "select * from lease where id = ?";
-		Lease entity = jdbcTemplate.queryForObject(sql, new Object[] { id },
-				new BeanPropertyRowMapper<Lease>(Lease.class));
-		return entity;
-	}
-
-	@Override
-	public List<Lease> findAll() {
-		String sql = "select * from lease";
-		@SuppressWarnings({ "rawtypes", "unchecked" })
-		List<Lease> entities = jdbcTemplate.query(sql, new BeanPropertyRowMapper(
-				Lease.class));
-		return entities;
-	}
-
-	@Override
-	public List<Lease> findAll(String qlstr) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public void save(Lease entity) {
 		if (entity.getId() == 0) {
 			this.jdbcTemplate.update("insert into lease (student_id,house_id,room_id,room_num,duration,enter_date,leave_date,"
@@ -68,12 +45,6 @@ public class LeaseDaoImpl extends BaseSQLImpl<Lease> implements LeaseDao {
 					entity.getParkingId(),
 					entity.getId());
 		}
-	}
-
-	@Override
-	public void delete(Lease entity) {
-		String query = "delete from lease where id='" + entity.getId() + "' ";
-		jdbcTemplate.update(query);
 	}
 
 }
