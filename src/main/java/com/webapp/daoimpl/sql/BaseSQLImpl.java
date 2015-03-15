@@ -128,7 +128,7 @@ public abstract class BaseSQLImpl<T> implements BaseDao<T> {
 	
 	private String createQuery(String sqlstr, Parameter parameter){
 	
-		if(parameter.size()==0){
+		if(parameter==null||parameter.size()==0){
 			return sqlstr;
 		}
 		
