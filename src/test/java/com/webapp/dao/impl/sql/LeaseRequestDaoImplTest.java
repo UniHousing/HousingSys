@@ -19,7 +19,9 @@ public class LeaseRequestDaoImplTest extends SpringTransactionContextTest{
 	public void pageFind(){
 		Page<LeaseRequest> page = new Page<LeaseRequest>();
 		Parameter parameter = new Parameter();
+		
     	page = leaseRequestDao.find(page,"select * from lease_request", null);
+    	
     	for(LeaseRequest leaseRequest: page.getList()){
     		System.out.println("id: "+leaseRequest.getId()+" student_id:"+ leaseRequest.getStudentId());
     	}

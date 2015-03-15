@@ -119,8 +119,9 @@ public abstract class BaseSQLImpl<T> implements BaseDao<T> {
 		if(!page.isDisabled()){
 			query +=  " limit "+ page.getFirstResult()+" , "+page.getMaxResults();
 		}
-		System.out.println("Pagin query: "+query);
+		System.out.println("Paging query: "+query);
 		List<E>  result = (List<E>) findAll(query);
+		System.out.println(result);
 		page.setList(result);
 		return page;
 	}
