@@ -10,30 +10,6 @@ import com.webapp.dao.InvoiceDao;
 import com.webapp.model.Invoice;
 @Component
 public class InvoiceDaoImpl extends BaseSQLImpl<Invoice> implements InvoiceDao {
-
-	@Override
-	public Invoice findById(Serializable id) {
-		String sql = "SELECT * FROM invoice WHERE id = ?";
-		Invoice entity = jdbcTemplate.queryForObject(sql, new Object[] { id },
-				new BeanPropertyRowMapper<Invoice>(Invoice.class));
-		return entity;
-	}
-
-	@Override
-	public List<Invoice> findAll() {
-		String sql = "select * from invoice";
-		@SuppressWarnings({ "rawtypes", "unchecked" })
-		List<Invoice> entities = jdbcTemplate.query(sql, new BeanPropertyRowMapper(
-				Invoice.class));
-		return entities;
-	}
-
-	@Override
-	public List<Invoice> findAll(String qlstr) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
 	@Override
 	public void save(Invoice entity) {
 		if (entity.getId() == 0) {
@@ -60,11 +36,4 @@ public class InvoiceDaoImpl extends BaseSQLImpl<Invoice> implements InvoiceDao {
 		}
 		
 	}
-
-	@Override
-	public void delete(Invoice entity) {
-		String query = "delete from invoice where id='" + entity.getId() + "' ";
-		jdbcTemplate.update(query);
-	}
-
 }

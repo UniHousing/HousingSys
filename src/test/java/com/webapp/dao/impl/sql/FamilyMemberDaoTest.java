@@ -53,12 +53,7 @@ public class FamilyMemberDaoTest extends SpringTransactionContextTest {
 		String dob1 = format.format(curDate);
 		fMember2.setBirthDate(dob1);
 		fMemberDao.save(fMember2);
-		
-		List<FamilyMember> fmembers = fMemberDao.findByName("Fred");   // FindByName Test
-		assertEquals(fmembers.size(), 2);
-		
-		fMemberDao.delete(fMember);
-		fMemberDao.delete(fMember2);
+
 	}
 	
 //	@Test

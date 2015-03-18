@@ -119,15 +119,16 @@ public abstract class BaseSQLImpl<T> implements BaseDao<T> {
 		if(!page.isDisabled()){
 			query +=  " limit "+ page.getFirstResult()+" , "+page.getMaxResults();
 		}
-		System.out.println("Pagin query: "+query);
+		System.out.println("Paging query: "+query);
 		List<E>  result = (List<E>) findAll(query);
+		System.out.println(result);
 		page.setList(result);
 		return page;
 	}
 	
 	private String createQuery(String sqlstr, Parameter parameter){
 	
-		if(parameter.size()==0){
+		if(parameter==null||parameter.size()==0){
 			return sqlstr;
 		}
 		

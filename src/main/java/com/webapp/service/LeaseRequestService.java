@@ -55,12 +55,11 @@ public class LeaseRequestService {
 		Parameter parameter = new Parameter();
 		
 		if(StringUtils.isNotBlank(leaseRequest.getStudentId())){
-			parameter.put("student_id", new Object[]{"=", "'"+leaseRequest.getStudentId()+"'"});
+			parameter.put("student_id", leaseRequest.getStudentId());
 		}
 		if(StringUtils.isNotBlank(leaseRequest.getPreference1())){
-			parameter.put("preference1", new Object[]{"like", "'%"+leaseRequest.getPreference1()+"%'"});
+			parameter.put("preference1",leaseRequest.getPreference1());
 		}
-
 		page = leaseRequestDao.find(page,sqlstr, parameter);
 		return page;
 	}
