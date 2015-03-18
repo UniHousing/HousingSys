@@ -36,9 +36,6 @@ public class LeaseRequestService {
 		String sqlstr = "select * from lease_request";
 		Parameter parameter = new Parameter();
 		
-		if(StringUtils.isNotBlank(Integer.toString(leaseRequest.getStudentId()))){
-			parameter.put("student_id", leaseRequest.getStudentId());
-		}
 		if(StringUtils.isNotBlank(leaseRequest.getPreference1())){
 			parameter.put("preference1",leaseRequest.getPreference1());
 		}

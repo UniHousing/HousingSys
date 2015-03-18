@@ -52,12 +52,7 @@
 				<form:input path="preference3" htmlEscape="false" maxlength="200" class="required"/>
 			</div>
 		</div>
-		<div class="control-group">
-			<label class="control-label" for="name">status:</label>
-			<div class="controls">
-				<form:input path="status" htmlEscape="false" maxlength="200" class="required"/>
-			</div>
-		</div>
+		
 		<div class="control-group">
 			<label class="control-label" for="name">startDate:</label>
 			<div class="controls">

@@ -59,8 +59,8 @@ public class LeaseRequestController {
 
 	@RequestMapping(value = "save")
 	public String save(LeaseRequest leaseRequest, Model model, RedirectAttributes redirectAttributes) {
+		leaseRequest.setStatus("Pending");
 		leaseRequestService.save(leaseRequest);
-		leaseService.save(leaseRequest);
 		return "redirect:"+Global.getAdminPath()+"/or/leaseRequest/?repage";
 	}
 	
@@ -70,5 +70,11 @@ public class LeaseRequestController {
 		 
 		return "redirect:"+Global.getAdminPath()+"/or/leaseRequest/?repage";
 	}
-
+	@RequestMapping(value ="approve")
+	public String approve(LeaseRequest leaseRequest,RedirectAttributes redirectAttributes){
+		leaseRequest.setStatus("Approved");
+		leaseRequestService.save(leaseRequest);
+		leaseService.save(leaseRequest);
+		return "redirect:"+Global.getAdminPath()+"/or/leaseRequest/?repage";
+	}
 }

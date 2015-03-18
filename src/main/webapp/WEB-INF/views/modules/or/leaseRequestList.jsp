@@ -24,7 +24,6 @@
 	<form:form id="searchForm" modelAttribute="leaseRequest" action="${ctx}/or/leaseRequest/" method="post" class="breadcrumb form-search">
 		<input id="pageNo" name="pageNo" type="hidden" value="${page.pageNo}"/>
 		<input id="pageSize" name="pageSize" type="hidden" value="${page.pageSize}"/>
-		<label>Student Id ：</label><form:input path="studentId" htmlEscape="false" maxlength="50" class="input-small"/>
 		<label>Preference 1 ：</label><form:input path="preference1" htmlEscape="false" maxlength="50" class="input-small"/>
 		<label>Preference 2 ：</label><form:input path="preference2" htmlEscape="false" maxlength="50" class="input-small"/>
 		<label>Preference 3 ：</label><form:input path="preference3" htmlEscape="false" maxlength="50" class="input-small"/>
@@ -32,18 +31,23 @@
 	</form:form>
 	<tags:message content="${message}"/>
 	<table id="contentTable" class="table table-striped table-bordered table-condensed">
-		<thead><tr><th>Student Id</th><th>Preference 1</th><th>Preference 2</th><th>Preference 3</th><th>Status</th><shiro:hasPermission name="or:leaseRequest:edit"><th>operation</th></shiro:hasPermission></tr></thead>
+		<thead><tr><th>Student Id</th><th>Preference 1</th><th>Preference 2</th><th>Preference 3</th><th>Start Date</th><th>End Date</th><th>Status</th><shiro:hasPermission name="or:leaseRequest:edit"><th>operation</th></shiro:hasPermission></tr></thead>
 		<tbody>
 		<c:forEach items="${page.list}" var="lease_request">
 			<tr>
-				<td><a href="${ctx}/or/leaseRequest/form?id=${lease_request.id}">${lease_request.studentId}</a></td>
+				<td><a href="${ctx}/or/leaseRequest/form?id=${lease_request.id}"></a>${lease_request.studentId}</td>
 				<td>${lease_request.preference1}</td>
 				<td>${lease_request.preference2}</td>
 				<td>${lease_request.preference3}</td>
+				<td>${lease_request.startDate}</td>
+				<td>${lease_request.endDate}</td>
 				<td>${lease_request.status }</td>
 				<shiro:hasPermission name="or:leaseRequest:edit"><td>
+				<script type="text/javascript">
+					document.write("<a href=\"${ctx}/or/leaseRequest/approve?id=${lease_request.id}\" onclick='return confirmx('are you sure to Approve this leaseRequest？', this.href)\">approve</a>")						
+				</script>
     				<a href="${ctx}/or/leaseRequest/form?id=${lease_request.id}">edit</a>
-					<a href="${ctx}/or/leaseRequest/delete?id=${lease_request.id}" onclick="return confirmx('are you sure delete this leaseRequest？', this.href)">delete</a>
+					<a href="${ctx}/or/leaseRequest/delete?id=${lease_request.id}" onclick="return confirmx('are you sure to Delete this leaseRequest？', this.href)">delete</a>
 				</td></shiro:hasPermission>
 			</tr>
 		</c:forEach>
