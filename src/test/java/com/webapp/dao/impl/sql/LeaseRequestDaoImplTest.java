@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.webapp.common.test.SpringTransactionContextTest;
 import com.webapp.dao.LeaseRequestDao;
 import com.webapp.dao.Page;
-import com.webapp.model.House;
 import com.webapp.model.LeaseRequest;
 
 
