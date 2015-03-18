@@ -5,19 +5,14 @@ import java.util.Date;
 
 public class TerminReq extends IdEntity<TerminReq> {
 
-	private String leaseId;
+	private int leaseId;
 	private String reason;
 	private Date date;
 	private String status;
 	private Date inspectionDate;
 	private float extraFee;
 	
-	public String getLeaseId() {
-		return leaseId;
-	}
-	public void setLeaseId(String leaseId) {
-		this.leaseId = leaseId;
-	}
+	
 	public String getReason() {
 		return reason;
 	}
@@ -47,5 +42,11 @@ public class TerminReq extends IdEntity<TerminReq> {
 	}
 	public void setDate(Date date) {
 		this.date = date;
+	}
+	public int getLeaseId() {
+		return leaseId;
+	}
+	public void setLeaseId(int leaseId) {
+		this.leaseId = leaseId;
 	}
 }

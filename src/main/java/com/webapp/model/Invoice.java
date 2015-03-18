@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 public class Invoice extends IdEntity<Invoice>{
 	
-	private String leaseId;
+	private int leaseId;
 	private String payDate;
 	private String payMethod;
 	private String status;
@@ -13,13 +13,7 @@ public class Invoice extends IdEntity<Invoice>{
 	private double damageCharge;
 	private double lateFee;
 	private double total;
-	
-	public String getLeaseId() {
-		return leaseId;
-	}
-	public void setLeaseId(String leaseId) {
-		this.leaseId = leaseId;
-	}
+
 	public String getPayDate() {
 		return payDate;
 	}
@@ -61,5 +55,11 @@ public class Invoice extends IdEntity<Invoice>{
 	}
 	public void setPayMethod(String payMethod) {
 		this.payMethod = payMethod;
+	}
+	public int getLeaseId() {
+		return leaseId;
+	}
+	public void setLeaseId(int leaseId) {
+		this.leaseId = leaseId;
 	}
 }

@@ -5,19 +5,20 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 public class Nearby extends IdEntity<Nearby> {
 	
-	private String lotId;
-	private String houseId;
-	
-	public String getLotId() {
+	private int lotId;
+	private int houseId;
+	public int getLotId() {
 		return lotId;
 	}
-	public void setLotId(String lotId) {
+	public void setLotId(int lotId) {
 		this.lotId = lotId;
 	}
-	public String getHouseId() {
+	public int getHouseId() {
 		return houseId;
 	}
-	public void setHouseId(String houseId) {
+	public void setHouseId(int houseId) {
 		this.houseId = houseId;
 	}
+	
+
 }

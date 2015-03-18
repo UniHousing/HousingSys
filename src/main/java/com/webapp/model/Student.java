@@ -25,7 +25,7 @@ public class Student extends IdEntity<Student> {
 	private String status;
 	private String courses;
 	private String approvalId; // Visitor needs it. Others are null.
-	private String kinId;
+	private int kinId;
 	
 	public String getFname() {
 		return fname;
@@ -138,10 +138,11 @@ public class Student extends IdEntity<Student> {
 	public void setApprovalId(String approvalId) {
 		this.approvalId = approvalId;
 	}
-	public String getKinId() {
+	public int getKinId() {
 		return kinId;
 	}
-	public void setKinId(String kinId) {
+	public void setKinId(int kinId) {
 		this.kinId = kinId;
 	}
+
 }

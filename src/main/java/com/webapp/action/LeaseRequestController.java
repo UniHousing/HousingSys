@@ -16,6 +16,7 @@ import com.webapp.common.config.Global;
 import com.webapp.dao.Page;
 import com.webapp.model.LeaseRequest;
 import com.webapp.service.LeaseRequestService;
+import com.webapp.service.LeaseService;
 
 
 /**
@@ -29,6 +30,9 @@ public class LeaseRequestController {
 
 	@Autowired
 	private LeaseRequestService leaseRequestService;
+	@Autowired
+	private LeaseService leaseService;
+	
 	
 	@ModelAttribute
 	public LeaseRequest get(@RequestParam(required=false) String id) {
@@ -56,6 +60,7 @@ public class LeaseRequestController {
 	@RequestMapping(value = "save")
 	public String save(LeaseRequest leaseRequest, Model model, RedirectAttributes redirectAttributes) {
 		leaseRequestService.save(leaseRequest);
+		leaseService.save();
 		return "redirect:"+Global.getAdminPath()+"/or/leaseRequest/?repage";
 	}
 	

@@ -1,16 +1,25 @@
 package com.webapp.model;
 
 public class ParkingSpot extends IdEntity<ParkingSpot>{
-	private String id;
-	private String lot_id;
+	private int id;
+	private int lot_id;
 	private String classification;
 	private float fee;
 	private String availability;
 	
-	public String getLot_id() {
+
+	@Override
+	public int getId() {
+		return id;
+	}
+	@Override
+	public void setId(int id) {
+		this.id = id;
+	}
+	public int getLot_id() {
 		return lot_id;
 	}
-	public void setLot_id(String lot_id) {
+	public void setLot_id(int lot_id) {
 		this.lot_id = lot_id;
 	}
 	public String getClassification() {

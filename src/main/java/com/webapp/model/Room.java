@@ -7,7 +7,7 @@ public class Room extends IdEntity<Room> {
 
 	private String roomNumber;
 	private float monthRate;
-	private String houseId;
+	private int houseId;
 	
 	public String getRoomNumber() {
 		return roomNumber;
@@ -21,11 +21,12 @@ public class Room extends IdEntity<Room> {
 	public void setMonthRate(float monthRate) {
 		this.monthRate = monthRate;
 	}
-	public String getHouseId() {
+	public int getHouseId() {
 		return houseId;
 	}
-	public void setHouseId(String houseId) {
+	public void setHouseId(int houseId) {
 		this.houseId = houseId;
 	}
+	
 }
 

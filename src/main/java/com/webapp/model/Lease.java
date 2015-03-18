@@ -5,10 +5,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 public class Lease extends IdEntity<Lease>{
 	
-	private String studentId;
-	private String houseId;
-	private String roomId;
-	private String parkingId;
+	private int studentId;
+	private int houseId;
+	private int roomId;
+	private int parkingId;
 	private int roomNum;
 	private String duration;
 	private String enterDate;
@@ -18,28 +18,29 @@ public class Lease extends IdEntity<Lease>{
 	private double penalty;
 	private String inspectDate;
 	
-	public String getStudentId() {
+	
+	public int getStudentId() {
 		return studentId;
 	}
-	public void setStudentId(String studentId) {
+	public void setStudentId(int studentId) {
 		this.studentId = studentId;
 	}
-	public String getHouseId() {
+	public int getHouseId() {
 		return houseId;
 	}
-	public void setHouseId(String houseId) {
+	public void setHouseId(int houseId) {
 		this.houseId = houseId;
 	}
-	public String getRoomId() {
+	public int getRoomId() {
 		return roomId;
 	}
-	public void setRoomId(String roomId) {
+	public void setRoomId(int roomId) {
 		this.roomId = roomId;
 	}
-	public String getParkingId() {
+	public int getParkingId() {
 		return parkingId;
 	}
-	public void setParkingId(String parkingId) {
+	public void setParkingId(int parkingId) {
 		this.parkingId = parkingId;
 	}
 	public int getRoomNum() {

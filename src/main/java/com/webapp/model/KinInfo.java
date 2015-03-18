@@ -2,7 +2,7 @@ package com.webapp.model;
 
 public class KinInfo extends IdEntity<KinInfo> {
 
-	private String studentId;
+	private int studentId;
 	private String name;
 	private String relationship;
 	private String addr;
@@ -10,12 +10,7 @@ public class KinInfo extends IdEntity<KinInfo> {
 	private String postCode;
 	private String tel;
 	
-	public String getStudentId() {
-		return studentId;
-	}
-	public void setStudentId(String studentId) {
-		this.studentId = studentId;
-	}
+
 	public String getName() {
 		return name;
 	}
@@ -51,6 +46,12 @@ public class KinInfo extends IdEntity<KinInfo> {
 	}
 	public void setTel(String tel) {
 		this.tel = tel;
+	}
+	public int getStudentId() {
+		return studentId;
+	}
+	public void setStudentId(int studentId) {
+		this.studentId = studentId;
 	}
 }
 

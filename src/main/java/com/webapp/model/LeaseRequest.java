@@ -8,7 +8,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Document
 public class LeaseRequest extends IdEntity<LeaseRequest> {
 
-	private String studentId;
+	private int studentId;
 	private String preference1;
 	private String preference2;
 	private String preference3;
@@ -18,12 +18,7 @@ public class LeaseRequest extends IdEntity<LeaseRequest> {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date endDate;
 	
-	public String getStudentId() {
-		return studentId;
-	}
-	public void setStudentId(String studentId) {
-		this.studentId = studentId;
-	}
+
 	public String getPreference1() {
 		return preference1;
 	}
@@ -59,6 +54,12 @@ public class LeaseRequest extends IdEntity<LeaseRequest> {
 	}
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
+	}
+	public int getStudentId() {
+		return studentId;
+	}
+	public void setStudentId(int studentId) {
+		this.studentId = studentId;
 	}
 }
 

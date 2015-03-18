@@ -8,7 +8,7 @@ public class ResidenceHall extends IdEntity<ResidenceHall> {
 	private String name;
 	private String addr;
 	private String tel;
-	private String managerId;
+	private int managerId;
 	
 	public String getName() {
 		return name;
@@ -28,10 +28,11 @@ public class ResidenceHall extends IdEntity<ResidenceHall> {
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
-	public String getManagerId() {
+	public int getManagerId() {
 		return managerId;
 	}
-	public void setManagerId(String managerId) {
+	public void setManagerId(int managerId) {
 		this.managerId = managerId;
 	}
+
 }

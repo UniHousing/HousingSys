@@ -5,14 +5,15 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 public class FamilyMember extends IdEntity<FamilyMember> {
 	
-	private String studentId;
+	private int studentId;
 	private String name;
 	private String birthDate;
 	
-	public String getStudentId() {
+
+	public int getStudentId() {
 		return studentId;
 	}
-	public void setStudentId(String studentId) {
+	public void setStudentId(int studentId) {
 		this.studentId = studentId;
 	}
 	public String getBirthDate() {

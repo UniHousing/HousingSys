@@ -6,7 +6,7 @@ import java.util.Date;
 public class Ticket extends IdEntity<Ticket> {
 
 	private String type; 
-	private String studentId;
+	private int studentId;
 	private Date date;
 	private String location;
 	
@@ -16,12 +16,7 @@ public class Ticket extends IdEntity<Ticket> {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public String getStudentId() {
-		return studentId;
-	}
-	public void setStudentId(String studentId) {
-		this.studentId = studentId;
-	}
+
 	public Date getDate() {
 		return date;
 	}
@@ -33,5 +28,11 @@ public class Ticket extends IdEntity<Ticket> {
 	}
 	public void setLocation(String location) {
 		this.location = location;
+	}
+	public int getStudentId() {
+		return studentId;
+	}
+	public void setStudentId(int studentId) {
+		this.studentId = studentId;
 	}
 }
