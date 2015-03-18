@@ -1,5 +1,7 @@
 package com.webapp.model;
 
+import java.util.Date;
+
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
@@ -9,14 +11,14 @@ public class Lease extends IdEntity<Lease>{
 	private int houseId;
 	private int roomId;
 	private int parkingId;
-	private int roomNum;
+	private String roomNum;
 	private String duration;
-	private String enterDate;
-	private String leaveDate;
+	private Date enterDate;
+	private Date leaveDate;
 	private double deposit;
 	private String payment;
 	private double penalty;
-	private String inspectDate;
+	private Date inspectDate;
 	
 	
 	public int getStudentId() {
@@ -43,29 +45,16 @@ public class Lease extends IdEntity<Lease>{
 	public void setParkingId(int parkingId) {
 		this.parkingId = parkingId;
 	}
-	public int getRoomNum() {
-		return roomNum;
-	}
-	public void setRoomNum(int roomNum) {
-		this.roomNum = roomNum;
-	}
+
 	public String getDuration() {
 		return duration;
 	}
 	public void setDuration(String duration) {
 		this.duration = duration;
 	}
-	public String getEnterDate() {
-		return enterDate;
-	}
-	public void setEnterDate(String enterDate) {
-		this.enterDate = enterDate;
-	}
-	public String getLeaveDate() {
-		return leaveDate;
-	}
-	public void setLeaveDate(String leaveDate) {
-		this.leaveDate = leaveDate;
+
+	public void setLeaveDate(Date date) {
+		this.leaveDate = date;
 	}
 	public double getDeposit() {
 		return deposit;
@@ -85,11 +74,27 @@ public class Lease extends IdEntity<Lease>{
 	public void setPenalty(double penalty) {
 		this.penalty = penalty;
 	}
-	public String getInspectDate() {
+	public String getRoomNum() {
+		return roomNum;
+	}
+	public void setRoomNum(String roomNum) {
+		this.roomNum = roomNum;
+	}
+	public Date getEnterDate() {
+		return enterDate;
+	}
+	public void setEnterDate(Date enterDate) {
+		this.enterDate = enterDate;
+	}
+	public Date getInspectDate() {
 		return inspectDate;
 	}
-	public void setInspectDate(String inspectDate) {
+	public void setInspectDate(Date inspectDate) {
 		this.inspectDate = inspectDate;
 	}
+	public Date getLeaveDate() {
+		return leaveDate;
+	}
+
 }
 

@@ -1,5 +1,7 @@
 package com.webapp.service;
 
+import java.util.List;
+
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,6 +49,10 @@ public class HouseService {
 
 	public void save(House house){
 		houseDao.save(house);
+	}
+	public List<House> findHouseByType(String type){
+		String sql="select * from house where type like'%"+type+"%'"; 
+		return houseDao.findAll(sql);
 	}
 
 	public void delete(House house){

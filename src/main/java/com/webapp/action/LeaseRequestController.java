@@ -60,7 +60,7 @@ public class LeaseRequestController {
 	@RequestMapping(value = "save")
 	public String save(LeaseRequest leaseRequest, Model model, RedirectAttributes redirectAttributes) {
 		leaseRequestService.save(leaseRequest);
-		leaseService.save();
+		leaseService.save(leaseRequest);
 		return "redirect:"+Global.getAdminPath()+"/or/leaseRequest/?repage";
 	}
 	
