@@ -5,5 +5,5 @@ import com.webapp.model.User;
 
 public interface UserDao extends BaseDao<User> {
 
-
+	public User findByLoginName(String loginName);
 }

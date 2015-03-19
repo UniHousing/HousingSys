@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html style="overflow-x:hidden;overflow-y:auto;">
 	<head>
-		<title><sitemesh:title/> - Powered By JeeSite</title>
+		<title><sitemesh:title/> - Powered By NCSU</title>
 		<%@include file="/WEB-INF/views/include/head.jsp" %>
 		<sitemesh:head/>
 	</head>

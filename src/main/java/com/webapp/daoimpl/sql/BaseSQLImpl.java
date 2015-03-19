@@ -48,6 +48,10 @@ public abstract class BaseSQLImpl<T> implements BaseDao<T> {
 	}
 
 	@Override
+	public T find(String qlstr) {
+		return (T) this.jdbcTemplate.queryForObject(qlstr, new BeanPropertyRowMapper(this.entityClass));
+	}
+	@Override
 	public List<T> findAll(){
 		return findAll("select * from "+ tableName);
 	}
@@ -121,7 +125,6 @@ public abstract class BaseSQLImpl<T> implements BaseDao<T> {
 		}
 		System.out.println("Paging query: "+query);
 		List<E>  result = (List<E>) findAll(query);
-		System.out.println(result);
 		page.setList(result);
 		return page;
 	}

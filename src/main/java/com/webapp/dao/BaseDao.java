@@ -20,7 +20,17 @@ public interface BaseDao<T> {
 	 */
 	public T get(Serializable id);
 
-
+	/**
+	 * find one entity based on query string
+	 * @param qlstr
+	 * @return
+	 */
+	public T find(String qlstr);
+	
+	/**
+	 * find all entities of this class
+	 * @return
+	 */
 	public List<T> findAll();
 	/**
 	 * Find All the Entity Using Query
