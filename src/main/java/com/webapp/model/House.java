@@ -8,7 +8,8 @@ import javax.persistence.Entity;
 public class House extends IdEntity<House>{
 	
 	private String name;
-
+	private String addr;
+	private String tel;
 	private String type;
 
 	
@@ -35,6 +36,22 @@ public class House extends IdEntity<House>{
 	@Override
 	public String toString() {
 		return name;
+	}
+
+	public String getAddr() {
+		return addr;
+	}
+
+	public void setAddr(String addr) {
+		this.addr = addr;
+	}
+
+	public String getTel() {
+		return tel;
+	}
+
+	public void setTel(String tel) {
+		this.tel = tel;
 	}
 
 }

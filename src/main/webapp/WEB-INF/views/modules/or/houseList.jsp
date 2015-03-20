@@ -19,7 +19,9 @@
 <body>
 	<ul class="nav nav-tabs">
 		<li class="active"><a href="${ctx}/or/house/">house list</a></li>
+		<li class="inactive"><a href="${ctx}/or/student/">student</a></li>
 		<li><a href="${ctx}/or/house/form">add house</a></li>
+		
 	</ul>
 	<form:form id="searchForm" modelAttribute="house" action="${ctx}/or/house/" method="post" class="breadcrumb form-search">
 		<input id="pageNo" name="pageNo" type="hidden" value="${page.pageNo}"/>

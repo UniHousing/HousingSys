@@ -30,7 +30,7 @@ public class ResidenceHallDaoTest extends SpringTransactionContextTest {
 		residenceHall.setName("Alex Hall");
 		residenceHall.setAddr("Oval Drive");
 		residenceHall.setTel("9194301321");
-		residenceHall.setManagerId("19");
+		residenceHall.setManagerId(19);
 		residenceHallDao.save(residenceHall);
 		residenceHallDao.delete(residenceHall);
 	}
@@ -42,7 +42,7 @@ public class ResidenceHallDaoTest extends SpringTransactionContextTest {
 		residenceHall.setName("Alex Hall");
 		residenceHall.setAddr("Oval Drive");
 		residenceHall.setTel("9194301321");
-		residenceHall.setManagerId("19");
+		residenceHall.setManagerId(19);
 		residenceHallDao.save(residenceHall);
 		ResidenceHall residenceHall2=residenceHallDao.findById("1");
 		assertEquals(residenceHall2.getName(), "Alex Hall");
@@ -54,13 +54,13 @@ public class ResidenceHallDaoTest extends SpringTransactionContextTest {
 		residenceHall.setName("Alex Hall");
 		residenceHall.setAddr("Oval Drive");
 		residenceHall.setTel("9194301321");
-		residenceHall.setManagerId("19");
+		residenceHall.setManagerId(19);
 		residenceHallDao.save(residenceHall);
 		ResidenceHall residenceHall2=new ResidenceHall();
 		residenceHall2.setName("Alex Hall");
 		residenceHall2.setAddr("Oval Drive");
 		residenceHall2.setTel("9194301321");
-		residenceHall2.setManagerId("19");
+		residenceHall2.setManagerId(19);
 		residenceHallDao.save(residenceHall2);
 		List<ResidenceHall> residenceHalls=residenceHallDao.findAll();
 		assertEquals(residenceHalls.size(), 2);
